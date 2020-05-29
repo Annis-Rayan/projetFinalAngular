@@ -12,6 +12,13 @@ import { HighlightsJumbotronComponent } from './Component/highlights-jumbotron/h
 import { ContainerComponent } from './Component/container/container.component';
 import { SocialLinksComponent } from './Component/social-links/social-links.component';
 import { FooterComponent } from './Component/footer/footer.component';
+import { AboutComponent } from './component/about/about.component';
+import { ContactComponent } from './component/contact/contact.component';
+import { SingleUserComponent } from './component/single-user/single-user.component';
+import { MultipleUsersComponent } from './component/multiple-users/multiple-users.component';
+import { SingleObsComponent } from './component/single-obs/single-obs.component';
+import { MultipleObsComponent } from './component/multiple-obs/multiple-obs.component';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +31,13 @@ import { FooterComponent } from './Component/footer/footer.component';
     ContainerComponent,
     SocialLinksComponent,
     FooterComponent,
+    AboutComponent,
+    ContactComponent,
+    SingleUserComponent,
+    MultipleUsersComponent,
+    SingleObsComponent,
+    MultipleObsComponent,
+
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes)
