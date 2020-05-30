@@ -1,1 +1,21 @@
-<p>multiple-users works!</p>
+<table class="table">
+  <tr>
+    <th>id</th>
+    <th>Pseudo</th>
+    <th>Prenom</th>
+    <th>Nom</th>
+    <th>Photo de profil</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let u of users">
+    <td>{{u.id}}</td>
+    <td>{{u.pseudo}}</td>
+    <td>{{u.prenom}}</td>
+    <td>{{u.nom}}</td>
+    <td>{{u.imageProfil}}</td>
+    <td><a class="btn btn-outline-info" [routerLink]="['/users','edit',u.id]" routerLinkActive="active">Edition</a></td>
+    <td><button class="btn btn-outline-danger" (click)="delete(u.id)">Suppression</button></td>
+  </tr>
+</table>
+

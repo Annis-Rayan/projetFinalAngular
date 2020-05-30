@@ -19,6 +19,8 @@ import { MultipleUsersComponent } from './component/multiple-users/multiple-user
 import { SingleObsComponent } from './component/single-obs/single-obs.component';
 import { MultipleObsComponent } from './component/multiple-obs/multiple-obs.component';
 import { EditUsersComponent } from './component/edit-users/edit-users.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -42,7 +44,7 @@ import { EditUsersComponent } from './component/edit-users/edit-users.component'
 
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(routes)
+    BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpClientModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
