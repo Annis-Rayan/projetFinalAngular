@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {User} from '../model/user';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-multiple-users',
@@ -7,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MultipleUsersComponent implements OnInit {
 
-  constructor() { }
+  private _users: User[] = [];
 
-  ngOnInit(): void {
+  constructor(private userService: UserService) {
   }
 
+  ngOnInit(): void {
+    this.initUsers();
+  }
+
+  private initUsers() {
+    this.userService.findAll().subscribe(result => {
+      this._users = result;
+    });
+  }
+
+  get users(): User[] {
+    return this._users;
+  }
+
+  set users(value: User[]) {
+    this._users = value;
+  }
+
+  public delete(id: number) {
+    this.userService.delete(id).subscribe(result => {
+      this.initUsers();
+    });
+  }
 }

@@ -18,6 +18,7 @@ import { SingleUserComponent } from './component/single-user/single-user.compone
 import { MultipleUsersComponent } from './component/multiple-users/multiple-users.component';
 import { SingleObsComponent } from './component/single-obs/single-obs.component';
 import { MultipleObsComponent } from './component/multiple-obs/multiple-obs.component';
+import { EditUsersComponent } from './component/edit-users/edit-users.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { MultipleObsComponent } from './component/multiple-obs/multiple-obs.comp
     MultipleUsersComponent,
     SingleObsComponent,
     MultipleObsComponent,
+    EditUsersComponent,
 
   ],
   imports: [
