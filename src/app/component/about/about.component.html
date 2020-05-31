@@ -1,1 +1,55 @@
-<p>about works!</p>
+<!-- container -->
+<div class="container">
+
+  <ol class="breadcrumb">
+    <li><a [routerLink]="['/home']" routerLinkActive="active">Home </a> </li>
+
+    <li> , About us</li>
+  </ol>
+
+  <div class="row">
+
+    <!-- Article main content -->
+    <article class="col-sm-8 maincontent">
+      <header class="page-header">
+        <h1 class="page-title">Une équipe dévouée</h1>
+        <br>
+      </header>
+      <h3>Nos débuts</h3>
+      <p><img src="assets/images/mac.jpg" alt="" class="img-rounded pull-right" width="300" >
+        Nous sommes une équipe de quatre développeurs ayant effectuée une formation developpeur web via AJC Formation Paris. Tous issus de formations post-bac différentes mais ayant en commun l'amour de la programmation et le partage de connaissances scientifiques nous avons voulu mettre en place une plateforme interactive de partage de connaissances.</p>
+      <h3>D'une idée à un projet</h3>
+      <p> Plusieurs dans le groupe ayant effectué des formations en rapport avec la biologie et tous sensible à la cause animale, environnementale et écologique dans le contexte actuel, il nous a semblé à la fois important et essentiel de se regrouper et d'agir tous ensemble! C'est ainsi que ce projet de sciences participatives à vu le jour.</p>
+      <h3>Notre objectif </h3>
+      <p>Nous espèrons mobiliser aussi bien les amoureux de la nature, les aventureux, les photographes en herbe dans notre cause. À travers vos observations nous allons pouvoir faire réaliser et sensibiliser à tous ceux qui l'ignore encore la beauté du monde en bas de chez eux.</p>
+      <h3>Financement</h3>
+      <p> Chaque ligne de code permettant à ce site d'exister est à but non lucratif, par conséquent toute inscription et gratuite et vous permets d'accéder à l'ensemble des fonctionnalités. Néanmoins nous sommes ouverts aux dons.</p>
+    </article>
+    <!-- /Article -->
+
+    <!-- Sidebar -->
+    <aside class="col-sm-4 sidebar sidebar-right">
+
+      <div class="widget">
+        <h4>Venez nous rejoindre</h4>
+        <h6> Adresser votre demande par mail ou via la page Contact</h6>
+        <ul class="list-unstyled list-spaces">
+          <li><a [routerLink]="['/contact']" routerLinkActive="active">Dev. Web </a><br><span class="small text-muted">Nous cherchons un développeur web pour nous aider à maintenir et développer le site.</span></li>
+          <li><a [routerLink]="['/contact']" routerLinkActive="active">Modérateur </a><br><span class="small text-muted">Passionné par les rapports relationnels et la bonne entente entre tous ? Envoyez une candidature.</span></li>
+          <li><a [routerLink]="['/contact']" routerLinkActive="active">Aide diverse </a><br><span class="small text-muted">Animé de la volonté de nous aidez, mais ne disposant pas de compétences particulières ? Envoyez nous quand même un message exprimant votre souhait, nous avons besoin de vous.</span></li>
+           </ul>
+      </div>
+
+    </aside>
+    <!-- /Sidebar -->
+
+  </div>
+</div>	<!-- /container -->
+
+
+
+
+
+
+
+
