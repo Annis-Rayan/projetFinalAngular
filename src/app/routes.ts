@@ -5,6 +5,9 @@ import {ContactComponent} from './component/contact/contact.component';
 import {MultipleUsersComponent} from './component/multiple-users/multiple-users.component';
 import {CanActivateService} from './services/can-activate.service';
 import {EditUsersComponent} from './component/edit-users/edit-users.component';
+import {ObservationsComponent} from './component/observations/observations.component';
+import {AnimauxComponent} from './component/animaux/animaux.component';
+import {LieuxComponent} from './component/lieux/lieux.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -14,4 +17,9 @@ export const routes: Routes = [
   {path: 'users', component: MultipleUsersComponent, canActivate: [CanActivateService]},
   {path: 'users/edit', component: EditUsersComponent, canActivate: [CanActivateService]},
   {path: 'users/edit/:id', component: EditUsersComponent, canActivate: [CanActivateService]},
+  {path: 'observations', component: ObservationsComponent},
+  {path: 'animaux', component: AnimauxComponent},
+  {path: 'lieux', component: LieuxComponent}
+
+
 ];

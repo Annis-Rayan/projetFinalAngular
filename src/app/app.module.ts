@@ -21,6 +21,9 @@ import { MultipleObsComponent } from './component/multiple-obs/multiple-obs.comp
 import { EditUsersComponent } from './component/edit-users/edit-users.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { ObservationsComponent } from './component/observations/observations.component';
+import { AnimauxComponent } from './component/animaux/animaux.component';
+import { LieuxComponent } from './component/lieux/lieux.component';
 
 
 @NgModule({
@@ -41,6 +44,9 @@ import {HttpClientModule} from '@angular/common/http';
     SingleObsComponent,
     MultipleObsComponent,
     EditUsersComponent,
+    ObservationsComponent,
+    AnimauxComponent,
+    LieuxComponent,
 
   ],
   imports: [
