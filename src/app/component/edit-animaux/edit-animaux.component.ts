@@ -22,9 +22,16 @@ export class EditAnimauxComponent implements OnInit {
   private _imageCtrl: FormControl;
   private _descriptionCtrl: FormControl;
 
-  constructor(private fb: FormBuilder, private animalService: AnimalService, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private fb: FormBuilder, private animalService: AnimalService,
+              private activatedRoute: ActivatedRoute, private router: Router) {
     this._nomCourantCtrl = fb.control('', Validators.required);
     this._imageCtrl = fb.control('', Validators.required);
+    this._animalForm = fb.group({
+      nomCourant: this.nomCourantCtrl,
+      nomLatin: this.nomLatinCtrl,
+      image: this.imageCtrl,
+      description: this.descriptionCtrl
+    });
   }
 
   ngOnInit(): void {

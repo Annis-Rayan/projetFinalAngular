@@ -1,0 +1,38 @@
+<form (ngSubmit)="save()" [formGroup]="lieuForm">
+  <div *ngIf="erreur" class="alert alert-danger">Données incorrectes</div>
+  <div class="form-group">
+    <label>id:</label>
+    <input [(ngModel)]="lieu.id" readonly placeholder="Attribution automatique"
+           [ngModelOptions]="{standalone: true}" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Pays:</label>
+    <input [(ngModel)]="lieu.pays" class="form-control" formControlName="pays">
+    <div *ngIf="paysCtrl.dirty&&paysCtrl.hasError('required')" class="alert alert-danger">
+      Pays requis
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Region:</label>
+    <input [(ngModel)]="lieu.region" class="form-control" formControlName="region">
+    <div *ngIf="regionCtrl.dirty&&regionCtrl.hasError('required')" class="alert alert-danger">
+      Region requise
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Localite:</label>
+    <input [(ngModel)]="lieu.localite" class="form-control" formControlName="localite">
+    <div *ngIf="localiteCtrl.dirty&&localiteCtrl.hasError('required')" class="alert alert-danger">
+      Localite requise
+    </div>
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-outline-success"
+            [disabled]="disable()">enregistrer
+    </button>
+    <a [routerLink]="['/lieux']" routerLinkActive="active" class="btn btn-outline-warning">annuler</a>
+  </div>
+</form>
+
+

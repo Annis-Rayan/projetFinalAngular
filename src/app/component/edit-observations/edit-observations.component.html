@@ -1,0 +1,41 @@
+<form (ngSubmit)="save()" [formGroup]="observationForm">
+  <div *ngIf="erreur" class="alert alert-danger">Données incorrectes</div>
+  <div class="form-group">
+    <label>id:</label>
+    <input [(ngModel)]="observation.id" readonly placeholder="Attribution automatique"
+           [ngModelOptions]="{standalone: true}" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Date d'observation:</label>
+    <input [(ngModel)]="observation.dateObservation" class="form-control" type="date" formControlName="dateObservation">
+    <div *ngIf="dateObservationCtrl.dirty&&dateObservationCtrl.hasError('dateInvalid')"
+         class="alert alert-danger">
+      Vous êtes dans le futur
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Nombre d'observations:</label>
+    <input [(ngModel)]="observation.nombreObservations" class="form-control" formControlName="nombreObservation">
+    <div *ngIf="nombreObservationCtrl.dirty&&nombreObservationCtrl.hasError('required')" class="alert alert-danger">
+      Nombre requis
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Description:</label>
+    <textarea rows="10" cols="50" name="description" [(ngModel)]="observation.description" class="form-control" formControlName="description">Description...</textarea>
+    <div *ngIf="descriptionCtrl.dirty&&descriptionCtrl.hasError('required')" class="alert alert-danger">
+      Description requise
+    </div>
+  </div>
+
+
+  <div>
+    <button type="submit" class="btn btn-outline-success"
+            [disabled]="disable()">enregistrer
+    </button>
+    <a [routerLink]="['/observations']" routerLinkActive="active" class="btn btn-outline-warning">annuler</a>
+  </div>
+</form>
+
+
+

@@ -11,6 +11,8 @@ import {LieuxComponent} from './component/lieux/lieux.component';
 import {ProvisaryRegisterComponent} from './component/provisary-register/provisary-register.component';
 import {SignInComponent} from './component/sign-in/sign-in.component';
 import {EditAnimauxComponent} from './component/edit-animaux/edit-animaux.component';
+import {EditLieuxComponent} from './component/edit-lieux/edit-lieux.component';
+import {EditObservationsComponent} from './component/edit-observations/edit-observations.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -24,12 +26,16 @@ export const routes: Routes = [
   {path: 'users/provisaryregister', component: ProvisaryRegisterComponent},
 
   {path: 'observations', component: ObservationsComponent},
+  {path: 'observations/edit', component: EditObservationsComponent},// canActivate: [CanActivateService]},
+  {path: 'observations/edit/:id', component: EditObservationsComponent}, //canActivate: [CanActivateService]},
 
   {path: 'animaux', component: AnimauxComponent},
   {path: 'animaux/edit', component: EditAnimauxComponent},// canActivate: [CanActivateService]},
   {path: 'animaux/edit/:id', component: EditAnimauxComponent}, //canActivate: [CanActivateService]},
 
   {path: 'lieux', component: LieuxComponent},
+  {path: 'lieux/edit', component: EditLieuxComponent},// canActivate: [CanActivateService]},
+  {path: 'lieux/edit/:id', component: EditLieuxComponent}, //canActivate: [CanActivateService]},
 
 
 

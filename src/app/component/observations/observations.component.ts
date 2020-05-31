@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observation} from '../model/observation';
+import {ObservationService} from '../../services/observation.service';
 
 @Component({
   selector: 'app-observations',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ObservationsComponent implements OnInit {
 
-  constructor() { }
+  private _observations: Observation[];
 
-  ngOnInit(): void {
+  constructor(private observationService: ObservationService) {
   }
 
+  ngOnInit(): void {
+    this.initObservations();
+  }
+
+  private initObservations() {
+    this.observationService.findAll().subscribe(result => {
+      this.observations = result;
+    });
+  }
+
+
+  public delete(id: number) {
+    this.observationService.delete(id).subscribe(result => {
+      this.initObservations();
+    });
+  }
+
+  get observations(): Observation[] {
+    return this._observations;
+  }
+
+  set observations(value: Observation[]) {
+    this._observations = value;
+  }
 }

@@ -26,6 +26,12 @@ export class EditUsersComponent implements OnInit {
     this._pseudoCtrl = fb.control('', Validators.required, control => this.checkPseudo(control));
     this._nomCtrl = fb.control('', Validators.required);
     this._prenomCtrl = fb.control('', Validators.required);
+    this.userForm = fb.group({
+      pseudo: this.pseudoCtrl,
+      prenom: this.prenomCtrl,
+      nom: this.nomCtrl,
+      imageProfil: this.imageProfilCtrl
+    });
   }
 
   checkPseudo(control: AbstractControl) {

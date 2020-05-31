@@ -27,6 +27,8 @@ import { LieuxComponent } from './component/lieux/lieux.component';
 import { ProvisaryRegisterComponent } from './component/provisary-register/provisary-register.component';
 import { SignInComponent } from './component/sign-in/sign-in.component';
 import {EditAnimauxComponent} from './component/edit-animaux/edit-animaux.component';
+import { EditLieuxComponent } from './component/edit-lieux/edit-lieux.component';
+import { EditObservationsComponent } from './component/edit-observations/edit-observations.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import {EditAnimauxComponent} from './component/edit-animaux/edit-animaux.compon
     LieuxComponent,
     ProvisaryRegisterComponent,
     SignInComponent,
-    EditAnimauxComponent
+    EditAnimauxComponent,
+    EditLieuxComponent,
+    EditObservationsComponent
 
   ],
   imports: [
