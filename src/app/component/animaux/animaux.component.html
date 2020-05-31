@@ -7,4 +7,23 @@
   </ol>
 </div>
 
-<p>animaux works!</p>
+<table class="table">
+  <tr>
+    <th>id</th>
+    <th>Nom courant</th>
+    <th>Nom latin</th>
+    <th>Photo</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let a of animaux">
+    <td>{{a.id}}</td>
+    <td>{{a.nomCourant}}</td>
+    <td>{{a.nomLatin}}</td>
+    <td>{{a.image}}</td>
+    <td>{{a.description}}</td>
+    <td><a class="btn btn-outline-info" [routerLink]="['/animaux','edit',a.id]" routerLinkActive="active">Edition</a></td>
+    <td><button class="btn btn-outline-danger" (click)="delete(a.id)">Suppression</button></td>
+  </tr>
+</table>

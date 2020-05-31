@@ -26,6 +26,7 @@ import { AnimauxComponent } from './component/animaux/animaux.component';
 import { LieuxComponent } from './component/lieux/lieux.component';
 import { ProvisaryRegisterComponent } from './component/provisary-register/provisary-register.component';
 import { SignInComponent } from './component/sign-in/sign-in.component';
+import {EditAnimauxComponent} from './component/edit-animaux/edit-animaux.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { SignInComponent } from './component/sign-in/sign-in.component';
     LieuxComponent,
     ProvisaryRegisterComponent,
     SignInComponent,
+    EditAnimauxComponent
 
   ],
   imports: [

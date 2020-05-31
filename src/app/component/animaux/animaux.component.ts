@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Animal} from '../model/animal';
+import {AnimalService} from '../../services/animal.service';
+import {User} from '../model/user';
 
 @Component({
   selector: 'app-animaux',
@@ -7,9 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnimauxComponent implements OnInit {
 
-  constructor() { }
+  private _animaux: Animal[];
 
-  ngOnInit(): void {
+  constructor(private animalService: AnimalService) {
   }
 
+  ngOnInit(): void {
+    this.initAnimaux();
+  }
+
+  private initAnimaux() {
+    this.animalService.findAll().subscribe(result => {
+      this._animaux = result;
+    });
+  }
+
+
+  public delete(id: number) {
+    this.animalService.delete(id).subscribe(result => {
+      this.initAnimaux();
+    });
+  }
+
+
+  get animaux(): Animal[] {
+    return this._animaux;
+  }
+
+  set animaux(value: Animal[]) {
+    this._animaux = value;
+  }
 }
