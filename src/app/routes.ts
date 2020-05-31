@@ -8,18 +8,21 @@ import {EditUsersComponent} from './component/edit-users/edit-users.component';
 import {ObservationsComponent} from './component/observations/observations.component';
 import {AnimauxComponent} from './component/animaux/animaux.component';
 import {LieuxComponent} from './component/lieux/lieux.component';
+import {ProvisaryRegisterComponent} from './component/provisary-register/provisary-register.component';
+import {SignInComponent} from './component/sign-in/sign-in.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: '', component: HomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
-  {path: 'users', component: MultipleUsersComponent, canActivate: [CanActivateService]},
-  {path: 'users/edit', component: EditUsersComponent, canActivate: [CanActivateService]},
-  {path: 'users/edit/:id', component: EditUsersComponent, canActivate: [CanActivateService]},
+  {path: 'users', component: MultipleUsersComponent},// canActivate: [CanActivateService]},
+  {path: 'users/edit', component: SignInComponent},// canActivate: [CanActivateService]},
+  {path: 'users/edit/:id', component: SignInComponent}, //canActivate: [CanActivateService]},
   {path: 'observations', component: ObservationsComponent},
   {path: 'animaux', component: AnimauxComponent},
-  {path: 'lieux', component: LieuxComponent}
+  {path: 'lieux', component: LieuxComponent},
+  {path: 'users/provisaryregister', component: ProvisaryRegisterComponent}
 
 
 ];

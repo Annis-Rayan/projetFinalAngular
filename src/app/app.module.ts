@@ -24,6 +24,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { ObservationsComponent } from './component/observations/observations.component';
 import { AnimauxComponent } from './component/animaux/animaux.component';
 import { LieuxComponent } from './component/lieux/lieux.component';
+import { ProvisaryRegisterComponent } from './component/provisary-register/provisary-register.component';
+import { SignInComponent } from './component/sign-in/sign-in.component';
 
 
 @NgModule({
@@ -47,6 +49,8 @@ import { LieuxComponent } from './component/lieux/lieux.component';
     ObservationsComponent,
     AnimauxComponent,
     LieuxComponent,
+    ProvisaryRegisterComponent,
+    SignInComponent,
 
   ],
   imports: [

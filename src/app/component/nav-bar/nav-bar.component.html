@@ -8,27 +8,25 @@
         height: 30%;
         object-fit: contain;
       } </style>
-      <a class="navbar-brand" href="index.html"><img src="assets/images/science-participative.jpg" alt="Progressus HTML5 template"> Site de Sciences </a>
+      <a class="navbar-brand" [routerLink]="['']"><img src="assets/images/science-participative.jpg" alt="Progressus HTML5 template"> Site de Sciences </a>
 
     </div>
 
       <ul class="nav navbar-nav pull-right">
-        <li class="active"><a href="#">Home</a></li>
+        <li> <a [routerLink]="['']" routerLinkActive="active">Home</a> </li>
 
         <li>
-          <a [routerLink]="['/about']" routerLinkActive="active">About</a>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="sidebar-left.html">Left Sidebar</a></li>
-            <li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>
-          </ul>
-        </li>
+          <a [routerLink]="['/about']" routerLinkActive="active">About us</a>   </li>
         <li>
           <a [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
           </li>
-        <li><a class="btn" href="signin.html">SIGN IN / SIGN UP</a></li>
+        <li>
+          <a [routerLink]="['/users/edit']" routerLinkActive="active">Sign in</a>
+        </li>
+        <li>
+          <a [routerLink]="['/users/provisaryregister']" routerLinkActive="active">Register</a>
+        </li>
+
       </ul>
 
   </div>
