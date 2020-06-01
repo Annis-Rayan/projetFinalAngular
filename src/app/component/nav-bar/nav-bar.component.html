@@ -4,30 +4,34 @@
     <div class="navbar-header">
       <!-- Button for smallest screens -->
       <style>img {
-        width: 30%;
-        height: 30%;
+        width: 10%;
+        height: 10%;
         object-fit: contain;
       } </style>
-      <a class="navbar-brand" [routerLink]="['']"><img src="assets/images/science-participative.jpg" alt="Progressus HTML5 template"> Site de Sciences </a>
+      <a class="navbar-brand" [routerLink]="['']"><img src="assets/images/logo_leaf.png"
+                                                       alt="Progressus HTML5 template"> Site de Sciences </a>
 
     </div>
 
-      <ul class="nav navbar-nav pull-right">
-        <li> <a [routerLink]="['']" routerLinkActive="active">Home</a> </li>
+    <nav class="navbar navbar-expand navbar-dark">
+      <li><a [routerLink]="['']" routerLinkActive="active">Accueil</a></li>
+      <li>
+        <a [routerLink]="['/users']" routerLinkActive="active">Utilisateurs</a>
+      </li>
+      <li>
+        <a [routerLink]="['/about']" routerLinkActive="active">A propos de nous</a></li>
+      <li>
+        <a [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
+      </li>
 
-        <li>
-          <a [routerLink]="['/about']" routerLinkActive="active">About us</a>   </li>
-        <li>
-          <a [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
-          </li>
-        <li>
-          <a [routerLink]="['/users/edit']" routerLinkActive="active">Sign in</a>
-        </li>
-        <li>
-          <a [routerLink]="['/users/provisaryregister']" routerLinkActive="active">Register</a>
-        </li>
+      <li>
+        <a [routerLink]="['/users/edit']" routerLinkActive="active">Sign in</a>
+      </li>
+      <li>
+        <a [routerLink]="['/users/provisaryregister']" routerLinkActive="active">Register</a>
+      </li>
 
-      </ul>
+    </nav>
 
   </div>
 </div>
