@@ -20,9 +20,9 @@ export const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
 
-  {path: 'users', component: MultipleUsersComponent, canActivate: [CanActivateService]},
-  {path: 'users/edit', component: SignInComponent, canActivate: [CanActivateService]},
-  {path: 'users/edit/:id', component: SignInComponent, canActivate: [CanActivateService]},
+  {path: 'users', component: MultipleUsersComponent}, //canActivate: [CanActivateService]},
+  {path: 'users/edit', component: SignInComponent}, //canActivate: [CanActivateService]},
+  {path: 'users/edit/:id', component: SignInComponent}, //canActivate: [CanActivateService]},
   {path: 'users/provisaryregister', component: ProvisaryRegisterComponent},
 
   {path: 'observations', component: ObservationsComponent},
