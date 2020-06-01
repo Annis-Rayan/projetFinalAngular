@@ -8,7 +8,7 @@ import {User} from '../component/model/user';
 })
 export class UserService {
 
-  private URL: string = 'http://localhost:8080/web/rest/user'; // TO CHECK
+  private URL: string = 'http://localhost:8080/web/rest/users'; // TO CHECK
 
   private headers: HttpHeaders;
   private options: object;
