@@ -17,11 +17,11 @@ export class UserService {
   }
 
   private initOption() {
-    //this.headers = new HttpHeaders({
-     // 'Content-Type': 'application/json',
-    // 'Authorization': 'Basic ' + sessionStorage.getItem('user') // TO CHECK
-    //});
-    // this.options = {headers: this.headers};
+    this.headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic ' + sessionStorage.getItem('user') // TO CHECK
+    });
+    this.options = {headers: this.headers};
   }
 
   public findAll(): Observable<Array<User>> {
