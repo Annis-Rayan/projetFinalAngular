@@ -75,7 +75,8 @@ export class EditUsersComponent implements OnInit {
 
   public disable(): boolean {
     if (this._user.id) {
-      return this._userForm.dirty && this._userForm.invalid;
+     // return this._userForm.dirty && this._userForm.invalid;
+      return this.userForm.invalid;
     }
     return this._userForm.untouched || (this._pseudoCtrl.dirty && this._pseudoCtrl.invalid);
   }

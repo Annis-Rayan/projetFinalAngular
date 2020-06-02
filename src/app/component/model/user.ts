@@ -3,7 +3,7 @@ export class User {
 
   constructor(private _id?: number, private _pseudo?: string,
               private _prenom?: string, private _nom?: string,
-              private _imageProfil?: string) {
+              private _imageProfil?: Blob) {
 
     // TO DO observations ? Signalement ?
 
@@ -42,11 +42,11 @@ export class User {
     this._nom = value;
   }
 
-  get imageProfil(): string {
+  get imageProfil(): Blob {
     return this._imageProfil;
   }
 
-  set imageProfil(value: string) {
+  set imageProfil(value: Blob) {
     this._imageProfil = value;
   }
 }
