@@ -16,7 +16,9 @@ export class EditAnimauxComponent implements OnInit {
   private _id: number;
   private _erreur: boolean = false;
 
+
   private _animalForm: FormGroup;
+  private _orderCtrl: FormControl;
   private _nomCourantCtrl: FormControl;
   private _nomLatinCtrl: FormControl;
   private _imageCtrl: FormControl;
@@ -25,12 +27,14 @@ export class EditAnimauxComponent implements OnInit {
   constructor(private fb: FormBuilder, private animalService: AnimalService,
               private activatedRoute: ActivatedRoute, private router: Router) {
     this._nomCourantCtrl = fb.control('', Validators.required);
+    this._orderCtrl = fb.control('', Validators.required);
     this._imageCtrl = fb.control('', Validators.required);
     this._animalForm = fb.group({
       nomCourant: this.nomCourantCtrl,
       nomLatin: this.nomLatinCtrl,
       image: this.imageCtrl,
-      description: this.descriptionCtrl
+      description: this.descriptionCtrl,
+      order: this.orderCtrl
     });
   }
 
@@ -86,6 +90,15 @@ export class EditAnimauxComponent implements OnInit {
 
   set id(value: number) {
     this._id = value;
+  }
+
+
+  get orderCtrl(): FormControl {
+    return this._orderCtrl;
+  }
+
+  set orderCtrl(value: FormControl) {
+    this._orderCtrl = value;
   }
 
   get erreur(): boolean {

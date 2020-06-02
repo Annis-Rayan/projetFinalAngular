@@ -9,7 +9,7 @@ import {Lieu} from '../component/model/lieu';
 })
 export class LieuService {
 
-  private URL: string = 'http://localhost:8080/web/rest/lieux'; // TO CHECK
+  private URL: string = 'http://localhost:8080/web/rest/localisation'; // TO CHECK
 
   private headers: HttpHeaders;
   private options: object;
@@ -29,6 +29,7 @@ export class LieuService {
     this.initOption();
     return this.httpClient.get<Array<Lieu>>(this.URL, this.options);
   }
+
 
   public findById(id: number): Observable<Lieu> {
     this.initOption();

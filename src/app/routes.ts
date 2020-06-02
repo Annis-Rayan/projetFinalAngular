@@ -25,17 +25,17 @@ export const routes: Routes = [
   {path: 'users/edit/:id', component: SignInComponent}, //canActivate: [CanActivateService]},
   {path: 'users/provisaryregister', component: ProvisaryRegisterComponent},
 
-  {path: 'observations', component: ObservationsComponent},
-  {path: 'observations/edit', component: EditObservationsComponent},// canActivate: [CanActivateService]},
-  {path: 'observations/edit/:id', component: EditObservationsComponent}, //canActivate: [CanActivateService]},
+  {path: 'observation', component: ObservationsComponent},
+  {path: 'observation/edit', component: EditObservationsComponent},// canActivate: [CanActivateService]},
+  {path: 'observation/edit/:id', component: EditObservationsComponent}, //canActivate: [CanActivateService]},
 
-  {path: 'animaux', component: AnimauxComponent},
-  {path: 'animaux/edit', component: EditAnimauxComponent},// canActivate: [CanActivateService]},
-  {path: 'animaux/edit/:id', component: EditAnimauxComponent}, //canActivate: [CanActivateService]},
+  {path: 'animal', component: AnimauxComponent},
+  {path: 'animal/edit', component: EditAnimauxComponent},// canActivate: [CanActivateService]},
+  {path: 'animal/edit/:id', component: EditAnimauxComponent}, //canActivate: [CanActivateService]},
 
-  {path: 'lieux', component: LieuxComponent},
-  {path: 'lieux/edit', component: EditLieuxComponent},// canActivate: [CanActivateService]},
-  {path: 'lieux/edit/:id', component: EditLieuxComponent}, //canActivate: [CanActivateService]},
+  {path: 'localisation', component: LieuxComponent},
+  {path: 'localisation/edit', component: EditLieuxComponent},// canActivate: [CanActivateService]},
+  {path: 'localisation/edit/:id', component: EditLieuxComponent}, //canActivate: [CanActivateService]},
 
 
 

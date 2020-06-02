@@ -1,8 +1,21 @@
 export class Animal {
-  constructor(private _id?: number, private _nomCourant?: string, private _nomLatin?: string, private _image?:string, private _description?:string) {
+  constructor(private _id?: number,
+              private _nomCourant?: string,
+              private _nomLatin?: string,
+              private _image?:string,
+              private _description?:string,
+              private _order?: string) {
 
   }
 
+
+  get order(): string {
+    return this._order;
+  }
+
+  set order(value: string) {
+    this._order = value;
+  }
 
   get id(): number {
     return this._id;

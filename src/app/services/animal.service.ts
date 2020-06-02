@@ -9,7 +9,7 @@ import {Animal} from '../component/model/animal';
 })
 export class AnimalService {
 
-  private URL: string = 'http://localhost:8080/web/rest/animaux'; // TO CHECK
+  private URL: string = 'http://localhost:8080/web/rest/animal'; // TO CHECK
 
   private headers: HttpHeaders;
   private options: object;
@@ -47,7 +47,8 @@ export class AnimalService {
       'nomCourant': animal.nomCourant,
       'nomLatin': animal.nomLatin,
       'image': animal.image,
-      'description': animal.description
+      'description': animal.description,
+      'order': animal.order
     };
     return this.httpClient.put(this.URL + '/' + animal.id, o, this.options);
   }
@@ -59,7 +60,8 @@ export class AnimalService {
       'nomCourant': animal.nomCourant,
       'nomLatin': animal.nomLatin,
       'image': animal.image,
-      'description': animal.description
+      'description': animal.description,
+      'order': animal.order
     };
     return this.httpClient.post(this.URL, o, this.options);
   }

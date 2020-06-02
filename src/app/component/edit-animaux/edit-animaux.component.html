@@ -6,6 +6,14 @@
            [ngModelOptions]="{standalone: true}" class="form-control">
   </div>
   <div class="form-group">
+    <label>Ordre:</label>
+    <input [(ngModel)]="animal.order" class="form-control" formControlName="order">
+    <div *ngIf="orderCtrl.dirty&&orderCtrl.hasError('required')" class="alert alert-danger">
+      Ordre requis
+    </div>
+
+  </div>
+  <div class="form-group">
     <label>Nom courant:</label>
     <input [(ngModel)]="animal.nomCourant" class="form-control" formControlName="nomCourant">
     <div *ngIf="nomCourantCtrl.dirty&&nomCourantCtrl.hasError('required')" class="alert alert-danger">
@@ -34,7 +42,7 @@
     <button type="submit" class="btn btn-outline-success"
             [disabled]="disable()">enregistrer
     </button>
-    <a [routerLink]="['/animaux']" routerLinkActive="active" class="btn btn-outline-warning">annuler</a>
+    <a [routerLink]="['/animal']" routerLinkActive="active" class="btn btn-outline-warning">annuler</a>
   </div>
 </form>
 

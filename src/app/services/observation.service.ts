@@ -9,7 +9,7 @@ import {Observation} from '../component/model/observation';
 })
 export class ObservationService {
 
-  private URL: string = 'http://localhost:8080/web/rest/observations'; // TO CHECK
+  private URL: string = 'http://localhost:8080/web/rest/observation'; // TO CHECK
 
   private headers: HttpHeaders;
   private options: object;
