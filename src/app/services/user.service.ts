@@ -67,4 +67,9 @@ export class UserService {
     this.initOption();
     return this.httpClient.get(`${this.URL}/nom/${pseudo}`, this.options);
   }
+
+  public findByPseudo(pseudo: string): Observable<User>{
+    this.initOption();
+    return this.httpClient.get<User>(this.URL + '/' + pseudo, this.options);
+  }
 }

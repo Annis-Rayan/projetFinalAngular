@@ -23,7 +23,7 @@ export class EditUsersComponent implements OnInit {
   private _imageProfilCtrl: FormControl;
 
   constructor(private fb: FormBuilder, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
-    this._pseudoCtrl = fb.control('', Validators.required, control => this.checkPseudo(control));
+    this._pseudoCtrl = fb.control('', Validators.required);// control => this.checkPseudo(control));
     this._nomCtrl = fb.control('', Validators.required);
     this._prenomCtrl = fb.control('', Validators.required);
     this.userForm = fb.group({
@@ -40,6 +40,12 @@ export class EditUsersComponent implements OnInit {
         return null;
       }
       return {'pseudoErreur': true};
+    }));
+  }
+
+  findByPseudo(controlPseudo: AbstractControl) {
+    return this.userService.findByPseudo(controlPseudo.value).pipe(map(res => {
+      return null;
     }));
   }
 
@@ -75,7 +81,7 @@ export class EditUsersComponent implements OnInit {
 
   public disable(): boolean {
     if (this._user.id) {
-     // return this._userForm.dirty && this._userForm.invalid;
+      // return this._userForm.dirty && this._userForm.invalid;
       return this.userForm.invalid;
     }
     return this._userForm.untouched || (this._pseudoCtrl.dirty && this._pseudoCtrl.invalid);

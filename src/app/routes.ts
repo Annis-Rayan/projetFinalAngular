@@ -13,12 +13,15 @@ import {SignInComponent} from './component/sign-in/sign-in.component';
 import {EditAnimauxComponent} from './component/edit-animaux/edit-animaux.component';
 import {EditLieuxComponent} from './component/edit-lieux/edit-lieux.component';
 import {EditObservationsComponent} from './component/edit-observations/edit-observations.component';
+import {FormLoginComponent} from './component/form-login/form-login.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: '', component: HomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
+
+  {path: 'login', component: FormLoginComponent},
 
   {path: 'users', component: MultipleUsersComponent}, //canActivate: [CanActivateService]},
   {path: 'users/edit', component: SignInComponent}, //canActivate: [CanActivateService]},

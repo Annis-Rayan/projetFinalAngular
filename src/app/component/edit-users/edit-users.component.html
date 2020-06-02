@@ -11,7 +11,7 @@
     <div *ngIf="pseudoCtrl.dirty&&pseudoCtrl.hasError('required')" class="alert alert-danger">
       Pseudo requis
     </div>
-    <div *ngIf="nomCtrl.dirty&&nomCtrl.hasError('nomerreur')" class="alert alert-danger">
+    <div *ngIf="pseudoCtrl.dirty&&pseudoCtrl.hasError('pseudoErreur')" class="alert alert-danger">
       Ce pseudo n'est pas disponible
     </div>
   </div>

@@ -29,6 +29,7 @@ import { SignInComponent } from './component/sign-in/sign-in.component';
 import {EditAnimauxComponent} from './component/edit-animaux/edit-animaux.component';
 import { EditLieuxComponent } from './component/edit-lieux/edit-lieux.component';
 import { EditObservationsComponent } from './component/edit-observations/edit-observations.component';
+import { FormLoginComponent } from './component/form-login/form-login.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { EditObservationsComponent } from './component/edit-observations/edit-ob
     SignInComponent,
     EditAnimauxComponent,
     EditLieuxComponent,
-    EditObservationsComponent
+    EditObservationsComponent,
+    FormLoginComponent
 
   ],
   imports: [

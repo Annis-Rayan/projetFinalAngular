@@ -45,4 +45,13 @@ export class MultipleUsersComponent implements OnInit {
       this.initUsers();
     });
   }
+
+  public get login(){
+    return sessionStorage.getItem('login');
+  }
+
+  public logout(){
+    sessionStorage.removeItem('user');
+    sessionStorage.removeItem('login');
+  }
 }
