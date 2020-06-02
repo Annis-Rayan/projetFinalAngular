@@ -7,6 +7,10 @@
   </ol>
 
 
+
+
+
+
   <table class="table">
     <tr>
       <th>id</th>
@@ -30,7 +34,7 @@
       <!--  <td>{{o.user.prenom}}</td> -->
       <td></td>
 
-      <td><a class="btn btn-outline-info" [routerLink]="['/observations','edit',o.id]"
+      <td><a class="btn btn-outline-info" [routerLink]="['/observation','edit',o.id]"
              routerLinkActive="active">Edition</a></td>
       <td>
         <button class="btn btn-outline-danger" (click)="delete(o.id)">Suppression</button>

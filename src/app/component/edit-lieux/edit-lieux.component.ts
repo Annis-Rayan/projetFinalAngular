@@ -23,10 +23,10 @@ export class EditLieuxComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private lieuService: LieuService,
               private activatedRoute: ActivatedRoute, private router: Router) {
-    this.paysCtrl = fb.control('', Validators.required);
-    this.regionCtrl = fb.control('', Validators.required);
-    this.localiteCtrl = fb.control('', Validators.required);
-    this.lieuForm = fb.group({
+    this._paysCtrl = fb.control('', Validators.required);
+    this._regionCtrl = fb.control('', Validators.required);
+    this._localiteCtrl = fb.control('', Validators.required);
+    this._lieuForm = fb.group({
       pays: this.paysCtrl,
       region: this.regionCtrl,
       localite: this.localiteCtrl

@@ -25,10 +25,12 @@ export class EditAnimauxComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private animalService: AnimalService,
               private activatedRoute: ActivatedRoute, private router: Router) {
+
     this._nomCourantCtrl = fb.control('', Validators.required);
     this._ordreCtrl = fb.control('', Validators.required);
     this._emplacementImageCtrl = fb.control('', Validators.required);
     this._animalForm = fb.group({
+
       nomCourant: this.nomCourantCtrl,
       nomScientifique: this.nomScientifiqueCtrl,
       emplacementImage: this.emplacementImageCtrl,
