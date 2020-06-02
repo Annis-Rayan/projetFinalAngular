@@ -16,25 +16,24 @@ export class EditAnimauxComponent implements OnInit {
   private _id: number;
   private _erreur: boolean = false;
 
-
   private _animalForm: FormGroup;
-  private _orderCtrl: FormControl;
+  private _ordreCtrl: FormControl;
   private _nomCourantCtrl: FormControl;
-  private _nomLatinCtrl: FormControl;
-  private _imageCtrl: FormControl;
+  private _nomScientifiqueCtrl: FormControl;
+  private _emplacementImageCtrl: FormControl;
   private _descriptionCtrl: FormControl;
 
   constructor(private fb: FormBuilder, private animalService: AnimalService,
               private activatedRoute: ActivatedRoute, private router: Router) {
     this._nomCourantCtrl = fb.control('', Validators.required);
-    this._orderCtrl = fb.control('', Validators.required);
-    this._imageCtrl = fb.control('', Validators.required);
+    this._ordreCtrl = fb.control('', Validators.required);
+    this._emplacementImageCtrl = fb.control('', Validators.required);
     this._animalForm = fb.group({
       nomCourant: this.nomCourantCtrl,
-      nomLatin: this.nomLatinCtrl,
-      image: this.imageCtrl,
+      nomScientifique: this.nomScientifiqueCtrl,
+      emplacementImage: this.emplacementImageCtrl,
       description: this.descriptionCtrl,
-      order: this.orderCtrl
+      ordre: this.ordreCtrl
     });
   }
 
@@ -54,14 +53,16 @@ export class EditAnimauxComponent implements OnInit {
 
   public save() {
     if (this._animal.id) {
+      console.log('update');
       this.animalService.update(this._animal).subscribe(res => {
-        this.router.navigate(['/animaux']);
+        this.router.navigate(['/animal']);
       }, err => {
         this._erreur = true;
       });
     } else {
+      console.log('create');
       this.animalService.create(this._animal).subscribe(res => {
-        this.router.navigate(['animaux']);
+        this.router.navigate(['/animal']);
       }, err => {
         this._erreur = true;
       });
@@ -93,12 +94,12 @@ export class EditAnimauxComponent implements OnInit {
   }
 
 
-  get orderCtrl(): FormControl {
-    return this._orderCtrl;
+  get ordreCtrl(): FormControl {
+    return this._ordreCtrl;
   }
 
-  set orderCtrl(value: FormControl) {
-    this._orderCtrl = value;
+  set ordreCtrl(value: FormControl) {
+    this._ordreCtrl = value;
   }
 
   get erreur(): boolean {
@@ -125,20 +126,20 @@ export class EditAnimauxComponent implements OnInit {
     this._nomCourantCtrl = value;
   }
 
-  get nomLatinCtrl(): FormControl {
-    return this._nomLatinCtrl;
+  get nomScientifiqueCtrl(): FormControl {
+    return this._nomScientifiqueCtrl;
   }
 
-  set nomLatinCtrl(value: FormControl) {
-    this._nomLatinCtrl = value;
+  set nomScientifiqueCtrl(value: FormControl) {
+    this._nomScientifiqueCtrl = value;
   }
 
-  get imageCtrl(): FormControl {
-    return this._imageCtrl;
+  get emplacementImageCtrl(): FormControl {
+    return this._emplacementImageCtrl;
   }
 
-  set imageCtrl(value: FormControl) {
-    this._imageCtrl = value;
+  set emplacementImageCtrl(value: FormControl) {
+    this._emplacementImageCtrl = value;
   }
 
   get descriptionCtrl(): FormControl {

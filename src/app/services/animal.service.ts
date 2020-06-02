@@ -45,11 +45,12 @@ export class AnimalService {
     const o: object = {
       'id': animal.id,
       'nomCourant': animal.nomCourant,
-      'nomLatin': animal.nomLatin,
-      'image': animal.image,
+      'nomScientifique': animal.nomScientifique,
+      'emplacementImage': animal.emplacementImage,
       'description': animal.description,
-      'order': animal.order
+      'ordre': animal.ordre
     };
+    console.log(o);
     return this.httpClient.put(this.URL + '/' + animal.id, o, this.options);
   }
 
@@ -58,10 +59,10 @@ export class AnimalService {
     const o: object = {
       'id': animal.id,
       'nomCourant': animal.nomCourant,
-      'nomLatin': animal.nomLatin,
-      'image': animal.image,
+      'nomScientifique': animal.nomScientifique,
+      'emplacementImage': animal.emplacementImage,
       'description': animal.description,
-      'order': animal.order
+      'ordre': animal.ordre
     };
     return this.httpClient.post(this.URL, o, this.options);
   }

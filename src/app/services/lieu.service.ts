@@ -49,6 +49,7 @@ export class LieuService {
       'region': lieu.region,
       'localite': lieu.localite
     };
+    console.log(o);
     return this.httpClient.put(this.URL + '/' + lieu.id, o, this.options);
   }
 
@@ -60,6 +61,7 @@ export class LieuService {
       'region': lieu.region,
       'localite': lieu.localite
     };
+    console.log(o);
     return this.httpClient.post(this.URL, o, this.options);
   }
 }

@@ -24,10 +24,11 @@
       <td>{{o.dateObservation}}</td>
       <td>{{o.nombreObservations}}</td>
       <td>{{o.description}}</td>
-      <td>{{o.localisation.localite}} - {{o.localisation.region}} - {{o.localisation.pays}} - </td>
+      <td>{{o.localisation.localite}} - {{o.localisation.region}} - {{o.localisation.pays}} -</td>
       <td>{{o.animal.nomCourant}}</td>
-      <td>{{o.user.prenom}}</td>
 
+      <!--  <td>{{o.user.prenom}}</td> -->
+      <td></td>
 
       <td><a class="btn btn-outline-info" [routerLink]="['/observations','edit',o.id]"
              routerLinkActive="active">Edition</a></td>

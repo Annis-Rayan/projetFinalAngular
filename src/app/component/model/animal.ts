@@ -1,20 +1,20 @@
 export class Animal {
   constructor(private _id?: number,
               private _nomCourant?: string,
-              private _nomLatin?: string,
-              private _image?:string,
+              private _nomScientifique?: string,
+              private _emplacementImage?:string,
               private _description?:string,
-              private _order?: string) {
+              private _ordre?: string) {
 
   }
 
 
-  get order(): string {
-    return this._order;
+  get ordre(): string {
+    return this._ordre;
   }
 
-  set order(value: string) {
-    this._order = value;
+  set ordre(value: string) {
+    this._ordre = value;
   }
 
   get id(): number {
@@ -33,20 +33,20 @@ export class Animal {
     this._nomCourant = value;
   }
 
-  get nomLatin(): string {
-    return this._nomLatin;
+  get nomScientifique(): string {
+    return this._nomScientifique;
   }
 
-  set nomLatin(value: string) {
-    this._nomLatin = value;
+  set nomScientifique(value: string) {
+    this._nomScientifique = value;
   }
 
-  get image(): string {
-    return this._image;
+  get emplacementImage(): string {
+    return this._emplacementImage;
   }
 
-  set image(value: string) {
-    this._image = value;
+  set emplacementImage(value: string) {
+    this._emplacementImage = value;
   }
 
   get description(): string {

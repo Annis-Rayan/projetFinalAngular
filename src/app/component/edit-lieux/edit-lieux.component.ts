@@ -49,14 +49,18 @@ export class EditLieuxComponent implements OnInit {
 
   public save() {
     if (this._lieu.id) {
+      console.log('update');
+      console.log(this._lieu);
       this.lieuService.update(this._lieu).subscribe(res => {
-        this.router.navigate(['/lieux']);
+        this.router.navigate(['/localisation']);
       }, err => {
         this._erreur = true;
       });
     } else {
+      console.log('create');
+      console.log(this._lieu);
       this.lieuService.create(this._lieu).subscribe(res => {
-        this.router.navigate(['lieux']);
+        this.router.navigate(['localisation']);
       }, err => {
         this._erreur = true;
       });
