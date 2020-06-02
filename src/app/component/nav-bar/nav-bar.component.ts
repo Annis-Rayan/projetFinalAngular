@@ -12,4 +12,12 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public get login(){
+    return sessionStorage.getItem('login');
+  }
+
+  public logout(){
+    sessionStorage.removeItem('login');
+    sessionStorage.removeItem('login');
+  }
 }

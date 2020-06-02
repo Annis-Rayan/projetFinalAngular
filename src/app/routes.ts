@@ -14,6 +14,7 @@ import {EditAnimauxComponent} from './component/edit-animaux/edit-animaux.compon
 import {EditLieuxComponent} from './component/edit-lieux/edit-lieux.component';
 import {EditObservationsComponent} from './component/edit-observations/edit-observations.component';
 import {FormLoginComponent} from './component/form-login/form-login.component';
+import {InscriptionComponent} from './component/inscription/inscription.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -22,6 +23,7 @@ export const routes: Routes = [
   {path: 'contact', component: ContactComponent},
 
   {path: 'login', component: FormLoginComponent},
+  {path: 'inscription', component: InscriptionComponent},
 
   {path: 'users', component: MultipleUsersComponent}, //canActivate: [CanActivateService]},
   {path: 'users/edit', component: SignInComponent}, //canActivate: [CanActivateService]},

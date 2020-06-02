@@ -1,5 +1,7 @@
-<div>
-  <h1>Identifiez-vous</h1>
+<div class="container">
+
+
+  <h2>Identifiez-vous</h2>
   <div>
     <div *ngIf="erreur" class="alert alert-danger">Erreur d'authentification</div>
     <form (ngSubmit)="send()" [formGroup]="loginForm">
@@ -22,3 +24,6 @@
     </form>
   </div>
 </div>
+
+
+

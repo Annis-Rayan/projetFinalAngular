@@ -10,7 +10,7 @@ export class CanActivateService implements CanActivate {
   }
 
   canActivate(): boolean {
-    const login = sessionStorage.getItem('user'); // TO CHECK
+    const login = sessionStorage.getItem('login'); // TO CHECK
     if (login) {
       return true;
     } else {

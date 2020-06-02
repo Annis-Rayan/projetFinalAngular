@@ -30,6 +30,7 @@ import {EditAnimauxComponent} from './component/edit-animaux/edit-animaux.compon
 import { EditLieuxComponent } from './component/edit-lieux/edit-lieux.component';
 import { EditObservationsComponent } from './component/edit-observations/edit-observations.component';
 import { FormLoginComponent } from './component/form-login/form-login.component';
+import { InscriptionComponent } from './component/inscription/inscription.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { FormLoginComponent } from './component/form-login/form-login.component'
     EditAnimauxComponent,
     EditLieuxComponent,
     EditObservationsComponent,
-    FormLoginComponent
+    FormLoginComponent,
+    InscriptionComponent
 
   ],
   imports: [

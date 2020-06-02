@@ -51,7 +51,7 @@ export class MultipleUsersComponent implements OnInit {
   }
 
   public logout(){
-    sessionStorage.removeItem('user');
+    sessionStorage.removeItem('login');
     sessionStorage.removeItem('login');
   }
 }

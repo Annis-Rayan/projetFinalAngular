@@ -32,7 +32,7 @@ export class FormLoginComponent implements OnInit {
 
   public send() {
     this.loginService.login(this._login).subscribe(res => {
-      sessionStorage.setItem('user', btoa(`${this._login.login}:${this._login.password}`));
+      sessionStorage.setItem('login', btoa(`${this._login.login}:${this._login.password}`));
       sessionStorage.setItem('login', this._login.login);
       this.router.navigate(['/home']);
     }, error => {

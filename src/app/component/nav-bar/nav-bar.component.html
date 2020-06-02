@@ -13,33 +13,58 @@
 
     </div>
 
-    <nav class="navbar navbar-expand navbar-dark">
-      <li><a [routerLink]="['']" routerLinkActive="active">Accueil</a></li>
-      <li>
-        <a [routerLink]="['/users']" routerLinkActive="active">Utilisateurs</a>
-      </li>
-      <li>
-        <a [routerLink]="['/animal']" routerLinkActive="active">Nos animaux</a>
-      </li>
-      <li>
-        <a [routerLink]="['/observation']" routerLinkActive="active">Nos observations</a>
-      </li>
-      <li>
-        <a [routerLink]="['/about']" routerLinkActive="active">A propos de nous</a></li>
-      <li>
-        <a [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
-      </li>
+    <ng-container *ngIf="login;else nonConnecte">
+      <nav class="navbar navbar-expand navbar-dark">
+        <li><a [routerLink]="['']" routerLinkActive="active">Accueil</a></li>
+        <li>
+          <a [routerLink]="['/users']" routerLinkActive="active">Utilisateurs</a>
+        </li>
+        <li>
+          <a [routerLink]="['/animal']" routerLinkActive="active">Especes</a>
+        </li>
+        <li>
+          <a [routerLink]="['/observation']" routerLinkActive="active">Observations</a>
+        </li>
+        <li>
+          <a [routerLink]="['/about']" routerLinkActive="active">A propos de nous</a></li>
+        <li>
+          <a [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
+        </li>
 
-      <li>
-        <a [routerLink]="['/login']" routerLinkActive="active">Connexion</a>
-      </li>
+        <li>
+        <button class="btn btn-link" (click)="logout()">Deconnexion</button>
+        </li>
 
-      <li>
-        <a [routerLink]="['/users/provisaryregister']" routerLinkActive="active">Register</a>
-      </li>
 
-    </nav>
+      </nav>
+    </ng-container>
+    <ng-template #nonConnecte>
+      <nav class="navbar navbar-expand navbar-dark">
+        <li><a [routerLink]="['']" routerLinkActive="active">Accueil</a></li>
+        <li>
+          <a [routerLink]="['/users']" routerLinkActive="active">Utilisateurs</a>
+        </li>
+        <li>
+          <a [routerLink]="['/animal']" routerLinkActive="active">Especes</a>
+        </li>
+        <li>
+          <a [routerLink]="['/observation']" routerLinkActive="active">Observations</a>
+        </li>
+        <li>
+          <a [routerLink]="['/about']" routerLinkActive="active">A propos de nous</a></li>
+        <li>
+          <a [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
+        </li>
 
+        <li>
+          <a [routerLink]="['/login']" routerLinkActive="active">Connexion</a>
+        </li>
+        <li>
+          <a [routerLink]="['/inscription']" routerLinkActive="active">S'inscrire</a>
+        </li>
+
+      </nav>
+    </ng-template>
   </div>
 </div>
 <!-- /.navbar -->
