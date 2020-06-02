@@ -3,6 +3,9 @@ import {Observation} from '../model/observation';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ObservationService} from '../../services/observation.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Animal} from '../model/animal';
+import {Lieu} from '../model/lieu';
+import {User} from '../model/user';
 
 @Component({
   selector: 'app-edit-observations',
@@ -12,13 +15,20 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class EditObservationsComponent implements OnInit {
 
   private _observation: Observation = new Observation();
+  private _animal: Animal = new Animal();
+  private _localisation: Lieu = new Lieu();
+  private _user: User = new User();
   private _id: number;
   private _erreur: boolean = false;
+
 
   private _observationForm: FormGroup;
   private _dateObservationCtrl: FormControl;
   private _nombreObservationCtrl: FormControl;
   private _descriptionCtrl: FormControl;
+  private _animalForm: FormGroup;
+  private _localisationForm: FormGroup;
+  private _userForm: FormGroup;
 
   constructor(private fb: FormBuilder, private observationService: ObservationService,
               private activatedRoute: ActivatedRoute, private router: Router) {

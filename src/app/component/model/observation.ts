@@ -1,7 +1,42 @@
+import {Animal} from './animal';
+import {Lieu} from './lieu';
+import {User} from './user';
+import {concat} from 'rxjs';
+
 export class Observation {
 
-  constructor(private _id?: number, private _dateObservation?: Date,
-              private _nombreObservations?: number, private _description?: string) {
+  constructor(private _id?: number,
+              private _animal?: Animal,
+              private _localisation?: Lieu,
+              private _user?: User,
+              private _dateObservation?: Date,
+              private _nombreObservations?: number,
+              private _description?: string
+  ) {
+  }
+
+  get animal(): Animal {
+    return this._animal;
+  }
+
+  set animal(value: Animal) {
+    this._animal = value;
+  }
+
+  get localisation(): Lieu {
+    return this._localisation;
+  }
+
+  set localisation(value: Lieu) {
+    this._localisation = value;
+  }
+
+  get user(): User {
+    return this._user;
+  }
+
+  set user(value: User) {
+    this._user = value;
   }
 
   get id(): number {

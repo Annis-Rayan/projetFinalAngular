@@ -13,6 +13,9 @@
       <th>Date de l'observation</th>
       <th>Nombre d'observations</th>
       <th>Description</th>
+      <th>lieu</th>
+      <th>animal</th>
+      <th>utilisateur</th>
       <th></th>
       <th></th>
     </tr>
@@ -21,6 +24,10 @@
       <td>{{o.dateObservation}}</td>
       <td>{{o.nombreObservations}}</td>
       <td>{{o.description}}</td>
+      <td>{{o.localisation.localite}} - {{o.localisation.region}} - {{o.localisation.pays}} - </td>
+      <td>{{o.animal.nomCourant}}</td>
+      <td>{{o.user.prenom}}</td>
+
 
       <td><a class="btn btn-outline-info" [routerLink]="['/observations','edit',o.id]"
              routerLinkActive="active">Edition</a></td>

@@ -21,6 +21,7 @@ export class ObservationsComponent implements OnInit {
   private initObservations() {
     this.observationService.findAll().subscribe(result => {
       this.observations = result;
+      console.log(this._observations);
     });
   }
 
