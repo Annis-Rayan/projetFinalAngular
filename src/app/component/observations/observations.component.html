@@ -1,16 +1,13 @@
-<!-- container -->
 <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-  <ol class="breadcrumb">
-    <li><a [routerLink]="['/home']" routerLinkActive="active">Home </a></li>
-    <li>, Observations</li>
-  </ol>
+    <h3><strong>Nos observations</strong></h3>
 
-
+  </nav>
 
 
 
-
+  <ng-container *ngIf="login;else nonConnecte">
   <table class="table">
     <tr>
       <th>id</th>
@@ -28,10 +25,17 @@
       <td>{{o.dateObservation}}</td>
       <td>{{o.nombreObservations}}</td>
       <td>{{o.description}}</td>
-      <td>{{o.localisation.localite}} - {{o.localisation.region}} - {{o.localisation.pays}} -</td>
-      <td>{{o.animal.nomCourant}}</td>
+      <td><a class="text-info" [routerLink]="['/localisation','single',o.localisation.id]"
+             routerLinkActive="active">
+        {{o.localisation.localite}} - {{o.localisation.region}} - {{o.localisation.pays}}
+      </a></td>
+      <td><a class="text-info" [routerLink]="['/animal','single',o.animal.id]"
+             routerLinkActive="active">
+        {{o.animal.nomCourant}}
+      </a></td>
 
-      <!--  <td>{{o.user.prenom}}</td> -->
+
+     <!--  <td>{{o.user.pseudo}}</td> -->
       <td></td>
 
       <td><a class="btn btn-outline-info" [routerLink]="['/observation','edit',o.id]"
@@ -41,4 +45,39 @@
       </td>
     </tr>
   </table>
+  </ng-container>
+  <ng-template #nonConnecte>
+    <table class="table">
+      <tr>
+        <th>id</th>
+        <th>Date de l'observation</th>
+        <th>Nombre d'observations</th>
+        <th>Description</th>
+        <th>lieu</th>
+        <th>animal</th>
+        <th>utilisateur</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let o of observations">
+        <td>{{o.id}}</td>
+        <td>{{o.dateObservation}}</td>
+        <td>{{o.nombreObservations}}</td>
+        <td>{{o.description}}</td>
+        <td><a class="text-info" [routerLink]="['/localisation','single',o.localisation.id]"
+               routerLinkActive="active">
+          {{o.localisation.localite}} - {{o.localisation.region}} - {{o.localisation.pays}}
+        </a></td>
+        <td><a class="text-info" [routerLink]="['/animal','single',o.animal.id]"
+               routerLinkActive="active">
+          {{o.animal.nomCourant}}
+        </a></td>
+
+
+        <!--  <td>{{o.user.pseudo}}</td> -->
+        <td></td>
+      </tr>
+    </table>
+  </ng-template>
+
 </div>

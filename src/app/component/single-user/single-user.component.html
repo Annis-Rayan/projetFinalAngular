@@ -1,1 +1,21 @@
-<p>single-user works!</p>
+<!-- container -->
+<div class="container">
+
+  <ol class="breadcrumb">
+    <a [routerLink]="['/home']" routerLinkActive="active">Home</a> &nbsp;-&nbsp;
+    <a [routerLink]="['/users']" routerLinkActive="active"> Liste des utilisateurs </a> &nbsp;-&nbsp;
+
+
+  </ol>
+  <br><br>
+  Cet utilisateur a un pseudo de {{user.pseudo}},
+  un prenom de {{user.prenom}},
+  image: ????? <!-- {{user.imageProfil}},-->
+  nom: {{user.nom}}
+
+  <br><br><br>
+  Voici ses observations: IMPLEMENTER FONCTION de recherche obs par user
+  <div>
+  </div>
+
+</div>

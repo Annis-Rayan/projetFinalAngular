@@ -22,6 +22,7 @@ export class ObservationsComponent implements OnInit {
     this.observationService.findAll().subscribe(result => {
       this.observations = result;
       console.log(this._observations);
+      console.log(this.login)
     });
   }
 
@@ -38,5 +39,14 @@ export class ObservationsComponent implements OnInit {
 
   set observations(value: Observation[]) {
     this._observations = value;
+  }
+
+  public get login(){
+    return sessionStorage.getItem('login');
+  }
+
+  public logout(){
+    sessionStorage.removeItem('login');
+    sessionStorage.removeItem('login');
   }
 }

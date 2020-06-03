@@ -15,30 +15,57 @@
     class="fa fa-plus"></i> Ajouter un animal</a></div>
   <br>
 
-
-  <table class="table">
-    <tr>
-      <th>id</th>
-      <th>Ordre</th>
-      <th>Nom courant</th>
-      <th>Nom latin</th>
-      <th>Photo</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-    </tr>
-    <tr *ngFor="let a of animaux">
-      <td>{{a.id}}</td>
-      <td>{{a.ordre}}</td>
-      <td>{{a.nomCourant}}</td>
-      <td>{{a.nomScientifique}}</td>
-      <td>{{a.emplacementImage}}</td>
-      <td>{{a.description}}</td>
-      <td><a class="btn btn-outline-info" [routerLink]="['/animal','edit',a.id]" routerLinkActive="active">Edition</a>
-      </td>
-      <td>
-        <button class="btn btn-outline-danger" (click)="delete(a.id)">Suppression</button>
-      </td>
-    </tr>
-  </table>
+  <ng-container *ngIf="login;else nonConnecte">
+    <table class="table">
+      <tr>
+        <th>id</th>
+        <th>Ordre</th>
+        <th>Nom courant</th>
+        <th>Nom latin</th>
+        <th>Photo</th>
+        <th>Description</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let a of animaux">
+        <td>{{a.id}}</td>
+        <td>{{a.ordre}}</td>
+        <td><a class="text-info" [routerLink]="['/animal','single',a.id]"
+               routerLinkActive="active"> {{a.nomCourant}}</a></td>
+        <td>{{a.nomScientifique}}</td>
+        <td>{{a.emplacementImage}}</td>
+        <td>{{a.description}}</td>
+        <td><a class="btn btn-outline-info" [routerLink]="['/animal','edit',a.id]" routerLinkActive="active">Edition</a>
+        </td>
+        <td>
+          <button class="btn btn-outline-danger" (click)="delete(a.id)">Suppression</button>
+        </td>
+      </tr>
+    </table>
+  </ng-container>
+  <ng-template #nonConnecte>
+    <table class="table">
+      <tr>
+        <th>id</th>
+        <th>Ordre</th>
+        <th>Nom courant</th>
+        <th>Nom latin</th>
+        <th>Photo</th>
+        <th>Description</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let a of animaux">
+        <td>{{a.id}}</td>
+        <td>{{a.ordre}}</td>
+        <td><a class="text-info" [routerLink]="['/animal','single',a.id]"
+               routerLinkActive="active"> {{a.nomCourant}}</a></td>
+        <td>{{a.nomScientifique}}</td>
+        <td>{{a.emplacementImage}}</td>
+        <td>{{a.description}}</td>
+       
+      </tr>
+    </table>
+  </ng-template>
 </div>
+

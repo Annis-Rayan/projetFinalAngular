@@ -1,0 +1,18 @@
+<!-- container -->
+<div class="container">
+
+  <ol class="breadcrumb">
+    <a [routerLink]="['/home']" routerLinkActive="active">Home</a> &nbsp;-&nbsp;
+    <a [routerLink]="['/observation']" routerLinkActive="active"> Liste des observations  </a> &nbsp;-&nbsp;
+
+    Lieu d'observation: {{lieu.localite}}, {{lieu.region}}, {{lieu.pays}}
+
+  </ol>
+  <br><br>
+  Bienvenue dans la région de {{lieu.region}}, l'observation a été effectuée à {{lieu.localite}}, dans le
+  pays: {{lieu.pays}}
+  <br><br><br>
+  <div>
+  </div>
+
+</div>

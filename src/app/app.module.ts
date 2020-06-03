@@ -31,6 +31,8 @@ import { EditLieuxComponent } from './component/edit-lieux/edit-lieux.component'
 import { EditObservationsComponent } from './component/edit-observations/edit-observations.component';
 import { FormLoginComponent } from './component/form-login/form-login.component';
 import { InscriptionComponent } from './component/inscription/inscription.component';
+import { SingleAnimalComponent } from './component/single-animal/single-animal.component';
+import { SingleLieuComponent } from './component/single-lieu/single-lieu.component';
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import { InscriptionComponent } from './component/inscription/inscription.compon
     EditLieuxComponent,
     EditObservationsComponent,
     FormLoginComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    SingleAnimalComponent,
+    SingleLieuComponent
 
   ],
   imports: [

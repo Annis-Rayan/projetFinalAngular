@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import {Lieu} from '../model/lieu';
-import {LieuService} from '../../services/lieu.service';
+import {AnimalService} from '../../services/animal.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {User} from '../model/user';
-import {UserService} from '../../services/user.service';
+import {LieuService} from '../../services/lieu.service';
+import {Animal} from '../model/animal';
+import {Lieu} from '../model/lieu';
 
 @Component({
-  selector: 'app-single-user',
-  templateUrl: './single-user.component.html',
-  styleUrls: ['./single-user.component.css']
+  selector: 'app-single-lieu',
+  templateUrl: './single-lieu.component.html',
+  styleUrls: ['./single-lieu.component.css']
 })
-export class SingleUserComponent implements OnInit {
+export class SingleLieuComponent implements OnInit {
 
 
-  private _user: User = new User();
+
+
+  private _lieu: Lieu = new Lieu();
   private _id: number;
   private _erreur: boolean = false;
 
@@ -23,10 +25,10 @@ export class SingleUserComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       if (params.id) {
         this._id = params.id;
-        this.userService.findById(this._id).subscribe(
+        this.lieuService.findById(this._id).subscribe(
           res => {
-            this._user = res;
-            console.log(this._user);
+            this._lieu = res;
+            console.log(this._lieu);
           }
         );
       }
@@ -36,16 +38,16 @@ export class SingleUserComponent implements OnInit {
 
 
 
-  constructor(private userService: UserService,
+  constructor(private lieuService: LieuService,
               private activatedRoute: ActivatedRoute, private router: Router) { }
 
 
-  get user(): User {
-    return this._user;
+  get lieu(): Lieu {
+    return this._lieu;
   }
 
-  set user(value: User) {
-    this._user = value;
+  set lieu(value: Lieu) {
+    this._lieu = value;
   }
 
   get id(): number {

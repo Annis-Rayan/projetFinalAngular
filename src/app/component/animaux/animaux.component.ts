@@ -40,4 +40,12 @@ export class AnimauxComponent implements OnInit {
   set animaux(value: Animal[]) {
     this._animaux = value;
   }
+  public get login(){
+    return sessionStorage.getItem('login');
+  }
+
+  public logout(){
+    sessionStorage.removeItem('login');
+    sessionStorage.removeItem('login');
+  }
 }

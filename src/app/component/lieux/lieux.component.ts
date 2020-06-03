@@ -39,4 +39,13 @@ export class LieuxComponent implements OnInit {
   set lieux(value: Lieu[]) {
     this._lieux = value;
   }
+
+  public get login(){
+    return sessionStorage.getItem('login');
+  }
+
+  public logout(){
+    sessionStorage.removeItem('login');
+    sessionStorage.removeItem('login');
+  }
 }

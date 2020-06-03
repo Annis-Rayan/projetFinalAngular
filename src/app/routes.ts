@@ -15,6 +15,10 @@ import {EditLieuxComponent} from './component/edit-lieux/edit-lieux.component';
 import {EditObservationsComponent} from './component/edit-observations/edit-observations.component';
 import {FormLoginComponent} from './component/form-login/form-login.component';
 import {InscriptionComponent} from './component/inscription/inscription.component';
+import {SingleAnimalComponent} from './component/single-animal/single-animal.component';
+import {SingleLieuComponent} from './component/single-lieu/single-lieu.component';
+import {SingleObsComponent} from './component/single-obs/single-obs.component';
+import {SingleUserComponent} from './component/single-user/single-user.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -28,17 +32,21 @@ export const routes: Routes = [
   {path: 'users', component: MultipleUsersComponent}, //canActivate: [CanActivateService]},
   {path: 'users/edit', component: SignInComponent}, //canActivate: [CanActivateService]},
   {path: 'users/edit/:id', component: SignInComponent}, //canActivate: [CanActivateService]},
+  {path: 'users/single/:id', component: SingleUserComponent}, //canActivate: [CanActivateService]},
   {path: 'users/provisaryregister', component: ProvisaryRegisterComponent},
 
   {path: 'observation', component: ObservationsComponent},
+  {path: 'observation/single/:id', component: SingleObsComponent},
   {path: 'observation/edit', component: EditObservationsComponent},// canActivate: [CanActivateService]},
   {path: 'observation/edit/:id', component: EditObservationsComponent}, //canActivate: [CanActivateService]},
 
   {path: 'animal', component: AnimauxComponent},
+  {path: 'animal/single/:id', component: SingleAnimalComponent},
   {path: 'animal/edit', component: EditAnimauxComponent},// canActivate: [CanActivateService]},
   {path: 'animal/edit/:id', component: EditAnimauxComponent}, //canActivate: [CanActivateService]},
 
   {path: 'localisation', component: LieuxComponent},
+  {path: 'localisation/single/:id', component: SingleLieuComponent},
   {path: 'localisation/edit', component: EditLieuxComponent},// canActivate: [CanActivateService]},
   {path: 'localisation/edit/:id', component: EditLieuxComponent}, //canActivate: [CanActivateService]},
 

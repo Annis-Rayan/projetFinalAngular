@@ -1,0 +1,18 @@
+
+<!-- container -->
+<div class="container">
+
+  <ol class="breadcrumb">
+    <a [routerLink]="['/home']" routerLinkActive="active">Home</a> &nbsp;-&nbsp;
+    <a [routerLink]="['/animaux']" routerLinkActive="active"> Liste des animaux  </a> &nbsp;-&nbsp;
+
+      {{animal.nomCourant}}
+  </ol>
+  <br><br>
+  Voici le {{animal.nomCourant}}, ordre: {{animal.ordre}}, nom scientifique: {{animal.nomScientifique}}
+  <br><br><br>
+  <div>
+    {{animal.description}}
+  </div>
+
+</div>
