@@ -5,8 +5,7 @@
 
   </nav>
 
-  <div><a class="btn btn-outline-info" [routerLink]="['/users','edit']" routerLinkActive="active"><i
-    class="fa fa-plus"></i> Ajouter un utilisateur</a></div>
+
 
   <ng-container *ngIf="login;else nonConnecte">
     <span>Bonjour {{login}} !</span>
@@ -34,6 +33,8 @@
         </td>
       </tr>
     </table>
+    <div><a class="btn btn-outline-info" [routerLink]="['/users','edit']" routerLinkActive="active"><i
+      class="fa fa-plus"></i> Ajouter un utilisateur</a></div>
   </ng-container>
   <ng-template #nonConnecte>
     <table class="table">
