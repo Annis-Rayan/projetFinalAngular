@@ -11,6 +11,15 @@ import {AnimalService} from '../../services/animal.service';
 export class AnimauxComponent implements OnInit {
 
   private _animaux: Animal[];
+  private _animal: Animal;
+
+  get animal(): Animal {
+    return this._animal;
+  }
+
+  set animal(value: Animal) {
+    this._animal = value;
+  }
 
   constructor(private animalService: AnimalService) {
   }
