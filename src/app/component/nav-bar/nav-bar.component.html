@@ -9,12 +9,28 @@
         object-fit: contain;
       } </style>
       <a class="navbar-brand" [routerLink]="['']"><img src="assets/images/logo_leaf.png"
-                                                       alt="Progressus HTML5 template"> SmartFaune </a>
+                                                       alt="Progressus HTML5 template"><strong> SmartFaune </strong></a>
 
     </div>
+   
+    <style>
+      a {
+        color: lightgreen;
+        background-color: transparent;
+        text-decoration: none;
+      }
+    </style>
+      <style>
+      button {
+        color: lightgreen;
+        background-color: transparent;
+        text-decoration: none;
+      }
+      </style>
 
     <ng-container *ngIf="login;else nonConnecte">
       <nav class="navbar navbar-expand navbar-dark">
+
         <li><a [routerLink]="['']" routerLinkActive="active">Accueil</a></li>
         <li>
           <a [routerLink]="['/users']" routerLinkActive="active">Utilisateurs</a>
