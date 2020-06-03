@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observation} from '../model/observation';
 import {ObservationService} from '../../services/observation.service';
+import {log} from 'util';
 
 @Component({
   selector: 'app-observations',
@@ -21,8 +22,9 @@ export class ObservationsComponent implements OnInit {
   private initObservations() {
     this.observationService.findAll().subscribe(result => {
       this.observations = result;
-      console.log(this._observations);
-      console.log(this.login)
+
+      console.log(this.login.valueOf());
+
     });
   }
 

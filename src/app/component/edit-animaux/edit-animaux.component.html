@@ -10,11 +10,11 @@
              [ngModelOptions]="{standalone: true}" class="form-control">
     </div>
     <div class="form-group">
-      <label>Ordre:</label>
+      <label>Ordre (Mammifere, Insecte, Oiseaux, Amphibiens):</label>
       <input [(ngModel)]="animal.ordre" class="form-control" formControlName="ordre">
-      <!-- <div *ngIf="ordreCtrl.dirty&&ordreCtrl.hasError('required')" class="alert alert-danger">
-        Ordre requis
-      </div> -->
+       <div *ngIf="ordreCtrl.dirty&&ordreCtrl.hasError('required')" class="alert alert-danger">
+        Ordre requis parmis: Mammifere, Insecte, Oiseaux, Amphibiens
+       </div>
 
     </div>
     <div class="form-group">
@@ -28,27 +28,33 @@
     <div class="form-group">
       <label>Nom latin:</label>
       <input [(ngModel)]="animal.nomScientifique" class="form-control" formControlName="nomScientifique">
+       <div *ngIf="nomScientifiqueCtrl.dirty&&nomScientifiqueCtrl.hasError('required')" class="alert alert-danger">
+        Nom scientifique/latin requis
+      </div>
 
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label>Photo:</label>
       <input type="file" accept="emplacementImage/jpeg, emplacementImage/png" [(ngModel)]="animal.emplacementImage" class="form-control"
              formControlName="emplacementImage">
-     <!-- <div *ngIf="emplacementImageCtrl.dirty&&emplacementImageCtrl.hasError('required')" class="alert alert-danger">
+     <div *ngIf="emplacementImageCtrl.dirty&&emplacementImageCtrl.hasError('required')" class="alert alert-danger">
         Photo requise
-      </div>-->
-    </div>
+      </div>
+    </div>-->
     <div class="form-group">
       <label>Description:</label>
       <textarea rows="10" cols="50" name="description" [(ngModel)]="animal.description" class="form-control"
                 formControlName="description">Description...</textarea>
-    </div>
+         <div *ngIf="descriptionCtrl.dirty&&descriptionCtrl.hasError('required')" class="alert alert-danger">
+          Description de l'animal requise
+        </div>
+      </div>
 
-    <div>
-      <button type="submit" class="btn btn-outline-success" [disabled]="disable()">enregistrer
-      </button>
-      <a [routerLink]="['/animal']" routerLinkActive="active" class="btn btn-outline-warning">annuler</a>
-    </div>
-  </form>
+      <div>
+        <button type="submit" class="btn btn-info" [disabled]="disable()">enregistrer
+        </button>
+        <a [routerLink]="['/animal']" routerLinkActive="active" class="btn btn-outline-warning">annuler</a>
+      </div>
+    </form>
 
-</div>
+  </div>

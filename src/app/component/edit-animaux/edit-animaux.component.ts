@@ -20,20 +20,22 @@ export class EditAnimauxComponent implements OnInit {
   private _ordreCtrl: FormControl;
   private _nomCourantCtrl: FormControl;
   private _nomScientifiqueCtrl: FormControl;
-  private _emplacementImageCtrl: FormControl;
+ // private _emplacementImageCtrl: FormControl;
   private _descriptionCtrl: FormControl;
 
   constructor(private fb: FormBuilder, private animalService: AnimalService,
               private activatedRoute: ActivatedRoute, private router: Router) {
 
     this._nomCourantCtrl = fb.control('', Validators.required);
+    this._nomScientifiqueCtrl = fb.control('', Validators.required);
     this._ordreCtrl = fb.control('', Validators.required);
-    this._emplacementImageCtrl = fb.control('', Validators.required);
+    this._descriptionCtrl = fb.control('', Validators.required),
+  //  this._emplacementImageCtrl = fb.control('', Validators.required);
     this._animalForm = fb.group({
 
       nomCourant: this.nomCourantCtrl,
       nomScientifique: this.nomScientifiqueCtrl,
-      emplacementImage: this.emplacementImageCtrl,
+    //  emplacementImage: this.emplacementImageCtrl,
       description: this.descriptionCtrl,
       ordre: this.ordreCtrl
     });
@@ -75,7 +77,8 @@ export class EditAnimauxComponent implements OnInit {
     if (this._animal.id) {
       return this._animalForm.dirty && this._animalForm.invalid;
     }
-    return this._animalForm.untouched || (this._nomCourantCtrl.dirty && this._nomCourantCtrl.invalid);
+    return this._animalForm.dirty && this._animalForm.invalid;
+   // return this._animalForm.untouched || (this._nomCourantCtrl.dirty && this._nomCourantCtrl.invalid);
   }
 
 
@@ -136,13 +139,13 @@ export class EditAnimauxComponent implements OnInit {
     this._nomScientifiqueCtrl = value;
   }
 
-  get emplacementImageCtrl(): FormControl {
-    return this._emplacementImageCtrl;
-  }
+ // get emplacementImageCtrl(): FormControl {
+//    return this._emplacementImageCtrl;
+ // }
 
-  set emplacementImageCtrl(value: FormControl) {
-    this._emplacementImageCtrl = value;
-  }
+//  set emplacementImageCtrl(value: FormControl) {
+ //   this._emplacementImageCtrl = value;
+ // }
 
   get descriptionCtrl(): FormControl {
     return this._descriptionCtrl;

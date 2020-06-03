@@ -71,9 +71,10 @@ export class EditLieuxComponent implements OnInit {
     if (this._lieu.id) {
       return this._lieuForm.dirty && this._lieuForm.invalid;
     }
-    return this._lieuForm.untouched || (this.paysCtrl.dirty && this.paysCtrl.invalid)
+    return this._lieuForm.dirty && this._lieuForm.invalid;
+    /*return this._lieuForm.untouched || (this.paysCtrl.dirty && this.paysCtrl.invalid)
       || (this.regionCtrl.dirty && this.regionCtrl.invalid)
-      || (this.localiteCtrl.dirty && this.localiteCtrl.invalid);
+      || (this.localiteCtrl.dirty && this.localiteCtrl.invalid);*/
   }
 
   get lieu(): Lieu {

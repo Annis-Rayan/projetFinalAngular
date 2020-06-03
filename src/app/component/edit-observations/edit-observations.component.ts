@@ -140,9 +140,10 @@ export class EditObservationsComponent implements OnInit {
     if (this._observation.id) {
       return this._observationForm.dirty && this._observationForm.invalid;
     }
-    return this._observationForm.untouched || (this.dateObservationCtrl.dirty && this.dateObservationCtrl.invalid)
+    return this._observationForm.dirty && this._observationForm.invalid;
+ /*   return this._observationForm.untouched || (this.dateObservationCtrl.dirty && this.dateObservationCtrl.invalid)
       || (this.nombreObservationCtrl.dirty && this.nombreObservationCtrl.invalid)
-      || (this.descriptionCtrl.dirty && this.descriptionCtrl.invalid);
+      || (this.descriptionCtrl.dirty && this.descriptionCtrl.invalid);*/
   }
 
   get observation(): Observation {
