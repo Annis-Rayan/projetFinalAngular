@@ -1,47 +1,55 @@
-<form (ngSubmit)="save()" [formGroup]="userForm">
-  <div *ngIf="erreur" class="alert alert-danger">Données incorrectes</div>
-  <div class="form-group">
-    <label>id:</label>
-    <input [(ngModel)]="user.id" readonly placeholder="Attribution automatique"
-           [ngModelOptions]="{standalone: true}" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Pseudo:</label>
-    <input [(ngModel)]="user.pseudo" class="form-control" formControlName="pseudo">
-    <div *ngIf="pseudoCtrl.dirty&&pseudoCtrl.hasError('required')" class="alert alert-danger">
-      Pseudo requis
-    </div>
-    <div *ngIf="pseudoCtrl.dirty&&pseudoCtrl.hasError('pseudoErreur')" class="alert alert-danger">
-      Ce pseudo n'est pas disponible
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Prenom:</label>
-    <input [(ngModel)]="user.prenom" class="form-control" formControlName="prenom">
-    <div *ngIf="prenomCtrl.dirty&&prenomCtrl.hasError('required')" class="alert alert-danger">
-      Prénom requis
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Nom:</label>
-    <input [(ngModel)]="user.nom" class="form-control" formControlName="nom">
-    <div *ngIf="nomCtrl.dirty&&nomCtrl.hasError('required')" class="alert alert-danger">
-      Nom requis
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Photo de profil:</label><br>
-   <!-- <input type="file" accept="image/jpeg, image/png" [(ngModel)]="user.imageProfil" class="img-rounded" formControlName="imageProfil">
-  -->
-    <input type="file" (change)="onFileChanged($event)">
-    <img [src]="imgURL" height="100" *ngIf="imgURL">
+<div class="container">
 
-  </div>
+  <ol class="breadcrumb">
+    <li><a [routerLink]="['/home']" routerLinkActive="active">Home </a></li>
+    <li>, Animaux</li>
+  </ol>
+  <br>
+  <form (ngSubmit)="save()" [formGroup]="userForm">
+    <div *ngIf="erreur" class="alert alert-danger">Données incorrectes</div>
+    <div class="form-group">
+      <label>id:</label>
+      <input [(ngModel)]="user.id" readonly placeholder="Attribution automatique"
+             [ngModelOptions]="{standalone: true}" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Pseudo:</label>
+      <input [(ngModel)]="user.pseudo" class="form-control" formControlName="pseudo">
+      <div *ngIf="pseudoCtrl.dirty&&pseudoCtrl.hasError('required')" class="alert alert-danger">
+        Pseudo requis
+      </div>
+      <div *ngIf="pseudoCtrl.dirty&&pseudoCtrl.hasError('pseudoErreur')" class="alert alert-danger">
+        Ce pseudo n'est pas disponible
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Prenom:</label>
+      <input [(ngModel)]="user.prenom" class="form-control" formControlName="prenom">
+      <div *ngIf="prenomCtrl.dirty&&prenomCtrl.hasError('required')" class="alert alert-danger">
+        Prénom requis
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Nom:</label>
+      <input [(ngModel)]="user.nom" class="form-control" formControlName="nom">
+      <div *ngIf="nomCtrl.dirty&&nomCtrl.hasError('required')" class="alert alert-danger">
+        Nom requis
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Photo de profil:</label><br>
+      <!-- <input type="file" accept="image/jpeg, image/png" [(ngModel)]="user.imageProfil" class="img-rounded" formControlName="imageProfil">
+     -->
+      <input type="file" (change)="onFileChanged($event)">
+      <img [src]="imgURL" height="100" *ngIf="imgURL">
 
-  <div>
-    <button type="submit" class="btn btn-info" (click)="onUpload()" value="upload"
-            [disabled]="disable()">Enregistrer
-    </button>
-    <a [routerLink]="['/users']" routerLinkActive="active" class="btn btn-light">Annuler</a>
-  </div>
-</form>
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-info" (click)="onUpload()" value="upload"
+              [disabled]="disable()">Enregistrer
+      </button>
+      <a [routerLink]="['/users']" routerLinkActive="active" class="btn btn-light">Annuler</a>
+    </div>
+  </form>
+</div>

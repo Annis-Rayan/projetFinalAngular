@@ -1,7 +1,7 @@
 <!-- Fixed navbar -->
 <div class="navbar navbar-inverse navbar-fixed-top headroom">
   <div class="container">
-    <div class="navbar-header">
+    <div class="navbar-header" >
       <!-- Button for smallest screens -->
       <style>img {
         width: 10%;
@@ -29,22 +29,22 @@
       </style>
 
     <ng-container *ngIf="login;else nonConnecte">
-      <nav class="navbar navbar-expand navbar-dark">
+      <nav class="navbar navbar-expand navbar-dark" >
 
-        <li><a [routerLink]="['']" routerLinkActive="active">Accueil</a></li>
+        <li><a [routerLink]="['']" routerLinkActive="active">Accueil</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <li>
-          <a [routerLink]="['/users']" routerLinkActive="active">Utilisateurs</a>
+          <a [routerLink]="['/users']" routerLinkActive="active">Utilisateurs</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
         <li>
-          <a [routerLink]="['/animal']" routerLinkActive="active">Especes</a>
+          <a [routerLink]="['/animal']" routerLinkActive="active">Especes</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
         <li>
-          <a [routerLink]="['/observation']" routerLinkActive="active">Observations</a>
+          <a [routerLink]="['/observation']" routerLinkActive="active">Observations</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
         <li>
-          <a [routerLink]="['/about']" routerLinkActive="active">A propos de nous</a></li>
+          <a [routerLink]="['/about']" routerLinkActive="active">A propos de nous</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <li>
-          <a [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
+          <a [routerLink]="['/contact']" routerLinkActive="active">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
 
         <li>
@@ -56,27 +56,27 @@
     </ng-container>
     <ng-template #nonConnecte>
       <nav class="navbar navbar-expand navbar-dark">
-        <li><a [routerLink]="['']" routerLinkActive="active">Accueil</a></li>
+        <li><a [routerLink]="['']" routerLinkActive="active">Accueil</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <li>
-          <a [routerLink]="['/users']" routerLinkActive="active">Utilisateurs</a>
+          <a [routerLink]="['/users']" routerLinkActive="active">Utilisateurs</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
         <li>
-          <a [routerLink]="['/animal']" routerLinkActive="active">Especes</a>
+          <a [routerLink]="['/animal']" routerLinkActive="active">Especes</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
         <li>
-          <a [routerLink]="['/observation']" routerLinkActive="active">Observations</a>
+          <a [routerLink]="['/observation']" routerLinkActive="active">Observations</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
         <li>
-          <a [routerLink]="['/about']" routerLinkActive="active">A propos de nous</a></li>
+          <a [routerLink]="['/about']" routerLinkActive="active">A propos de nous</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <li>
-          <a [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
+          <a [routerLink]="['/contact']" routerLinkActive="active">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
 
         <li>
-          <a [routerLink]="['/login']" routerLinkActive="active">Connexion</a>
+          <a [routerLink]="['/login']" routerLinkActive="active">Connexion</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
         <li>
-          <a [routerLink]="['/inscription']" routerLinkActive="active">S'inscrire</a>
+          <a [routerLink]="['/inscription']" routerLinkActive="active">S'inscrire</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
 
       </nav>

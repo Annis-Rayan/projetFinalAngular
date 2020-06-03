@@ -10,9 +10,7 @@
     <h3><strong>Nos lieux d'observation</strong></h3>
 
   </nav>
-  <br>
-  <div><a class="btn btn-outline-info" [routerLink]="['/localisation','edit']" routerLinkActive="active"><i
-    class="fa fa-plus"></i> Ajouter un lieu</a></div>
+
   <br>
   <ng-container *ngIf="login;else nonConnecte">
     <table class="table">
@@ -38,6 +36,9 @@
         </td>
       </tr>
     </table>
+    <br>
+    <div><a class="btn btn-outline-info" [routerLink]="['/localisation','edit']" routerLinkActive="active"><i
+      class="fa fa-plus"></i> Ajouter un lieu</a></div>
   </ng-container>
   <ng-template #nonConnecte>
     <table class="table">
