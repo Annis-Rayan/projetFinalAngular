@@ -11,7 +11,25 @@ import {AnimalService} from '../../services/animal.service';
 export class AnimauxComponent implements OnInit {
 
   private _animaux: Animal[];
+  private _animaux2: Animal[];
   private _animal: Animal;
+  private _animal2: Animal;
+
+  get animaux2(): Animal[] {
+    return this._animaux2;
+  }
+
+  set animaux2(value: Animal[]) {
+    this._animaux2 = value;
+  }
+
+  get animal2(): Animal {
+    return this._animal2;
+  }
+
+  set animal2(value: Animal) {
+    this._animal2 = value;
+  }
 
   get animal(): Animal {
     return this._animal;
@@ -31,7 +49,20 @@ export class AnimauxComponent implements OnInit {
   private initAnimaux() {
     this.animalService.findAll().subscribe(result => {
       this._animaux = result;
+    /*  console.log(this._animaux);
+      console.log('trouver animal from son nom');
+      this._animaux2 = this._animaux.filter(
+        book => book.nomCourant === 'chien');
+      console.log('stockage in list');
+      console.log(this._animaux2);
+      console.log('stockage in object');
+      this._animal2 = this._animaux2[0];
+      console.log(this._animal2);
+      console.log('fin');*/
+
     });
+
+
   }
 
 

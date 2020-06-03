@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observation} from '../model/observation';
 import {ObservationService} from '../../services/observation.service';
 import {log} from 'util';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-observations',
@@ -12,7 +13,7 @@ export class ObservationsComponent implements OnInit {
 
   private _observations: Observation[];
 
-  constructor(private observationService: ObservationService) {
+  constructor(private observationService: ObservationService, private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -23,7 +24,11 @@ export class ObservationsComponent implements OnInit {
     this.observationService.findAll().subscribe(result => {
       this.observations = result;
 
-      console.log(this.login.valueOf());
+      console.log(this.login);
+      this.userService.findByPseudo(this.login).subscribe(result2 => {
+        console.log(result2);
+        // console.log(this.userService.findByPseudo(this.login));
+      });
 
     });
   }

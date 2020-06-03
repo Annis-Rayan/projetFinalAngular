@@ -45,7 +45,16 @@
       </td>
     </tr>
   </table>
+
+    <br>
+    <div><a class="btn btn-outline-info" [routerLink]="['/observation','edit']" routerLinkActive="active"><i
+      class="fa fa-plus"></i> Ajouter une observation</a></div>
+    <br>
+
   </ng-container>
+
+
+
   <ng-template #nonConnecte>
     <table class="table">
       <tr>
@@ -79,5 +88,7 @@
       </tr>
     </table>
   </ng-template>
+
+
 
 </div>

@@ -17,6 +17,7 @@ export class AnimalService {
   constructor(private httpClient: HttpClient) {
   }
 
+
   private initOption() {
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -33,6 +34,12 @@ export class AnimalService {
   public findById(id: number): Observable<Animal> {
     this.initOption();
     return this.httpClient.get<Animal>(this.URL + '/' + id, this.options);
+  }
+
+
+  public findByNomContains(nomCourant: string): Observable<Animal> {
+    this.initOption();
+    return this.httpClient.get<Animal>(this.URL + '/' + nomCourant, this.options);
   }
 
   public delete(id: number): Observable<any> {

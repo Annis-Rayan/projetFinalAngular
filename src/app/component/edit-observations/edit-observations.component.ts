@@ -7,8 +7,9 @@ import {Animal} from '../model/animal';
 import {Lieu} from '../model/lieu';
 import {User} from '../model/user';
 import {AnimalService} from '../../services/animal.service';
-import {LieuService} from '../../services/lieu.service';
+
 import {UserService} from '../../services/user.service';
+
 
 @Component({
   selector: 'app-edit-observations',
@@ -26,26 +27,26 @@ export class EditObservationsComponent implements OnInit {
   private _nombreObservationCtrl: FormControl;
   private _descriptionCtrl: FormControl;
 
-  private _animalId: number;
-  private _animalOrdreCtrl: FormControl;
-  private _animalNomCourantCtrl: FormControl;
-  private _animalNomScientifiqueCtrl: FormControl;
-  private _animalEmplacementImageCtrl: FormControl;
-  private _animalDescriptionCtrl: FormControl;
+  private _animaux: Animal[];
 
-  private _localisationId: number;
+   private _animaux2: Animal[];
+  private _animal: Animal;
+  private _nouvelAnimal: Animal;
+
+  private _animalNomCourantCtrl: FormControl;
+
+  private _lieu: Lieu = new Lieu;
+
   private _localisationPaysCtrl: FormControl;
   private _localisationRegionCtrl: FormControl;
   private _localisationLocaliteCtrl: FormControl;
 
-  private _userId: number;
-  private _userPseudoCtrl: FormControl;
-  private _userPrenomCtrl: FormControl;
-  private _userNomCtrl: FormControl;
-  private _userImageProfilCtrl: FormControl;
+  private _user: User = new User;
 
 
-  constructor(private fb: FormBuilder,
+  constructor(private animalService: AnimalService,
+              private userService: UserService,
+              private fb: FormBuilder,
               private observationService: ObservationService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
@@ -54,14 +55,10 @@ export class EditObservationsComponent implements OnInit {
     this._nombreObservationCtrl = fb.control('', Validators.required);
 
     this._animalNomCourantCtrl = fb.control('', Validators.required);
-    this._animalOrdreCtrl = fb.control('', Validators.required);
-    this._animalEmplacementImageCtrl = fb.control('', Validators.required);
 
     this._localisationPaysCtrl = fb.control('', Validators.required);
     this._localisationRegionCtrl = fb.control('', Validators.required);
     this._localisationLocaliteCtrl = fb.control('', Validators.required);
-
-
 
 
     this._observationForm = fb.group({
@@ -71,17 +68,10 @@ export class EditObservationsComponent implements OnInit {
       description: this.descriptionCtrl,
 
       animalNomCourant: this.animalNomCourantCtrl,
-      animalNomScientifique: this.animalNomScientifiqueCtrl,
-      animalEmplacementImage: this.animalEmplacementImageCtrl,
-      animalDescription: this.animalDescriptionCtrl,
-      animalOrdre: this.animalOrdreCtrl,
 
       localisationPays: this.localisationPaysCtrl,
       localisationRegion: this.localisationRegionCtrl,
       localisationLocalite: this.localisationLocaliteCtrl,
-
-
-
 
     });
   }
@@ -94,40 +84,87 @@ export class EditObservationsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initAnimaux(); // on recupere la liste des animaux
+    this.initUser();
     this._erreur = false;
     this.activatedRoute.params.subscribe(params => {
       if (params.id) {
         this.observationService.findById(params.id).subscribe(data => {
           this.observation = data;
-          if (!this.observation.animal) {
-            this.observation.animal = new Animal(this.observation.animal.id = 1,
-              this.observation.animal.ordre = 'Oiseaux',
-              this.observation.animal.nomCourant = 'non defini',
-              this.observation.animal.description = 'non definie',
-              this.observation.animal.emplacementImage = 'non definie');
-          }
-          if (!this.observation.user) {
-            this.observation.user = new User();
-          }
-          if (!this.observation.localisation) {
-            this.observation.localisation = new Lieu();
-          }
         });
       }
     });
   }
 
+  private initAnimaux() {
+    this.animalService.findAll().subscribe(result => {
+      this._animaux = result;
+    });
+
+  }
+
+  private initUser(){
+    console.log(this.login.valueOf());
+    this.userService.findByPseudo(this.login.valueOf()).subscribe(resultUser => {
+      this._user = resultUser;
+      console.log(resultUser);
+    });
+  }
+
+
   public save() {
     if (this._observation.id) {
       console.log('update');
-      console.log(this.observation);
+      // RECUPERATION DE L ANIMAL A PARTIR DU NOM
+
+      console.log(this.observationForm.value);
+      console.log('trouver animal from son nom');
+      this._animaux2 = this._animaux.filter(
+        animal => animal.nomCourant === this.observationForm.value.animalNomCourant);
+      this._nouvelAnimal = this._animaux2[0];
+      this._observation.animal = this._nouvelAnimal;
+
+
+      // FIN RECUP ANIMAL
+
+      // ATTRIBUTION DES PARAM LIEU AU LIEU DE OBSERVATION
+
+      console.log(this._lieu);
+      this._observation.localisation = this._lieu;
+      this._observation.user = this._user;
+      console.log('infos transmises');
+      console.log(this._observation);
       this.observationService.update(this._observation).subscribe(res => {
         this.router.navigate(['/observation']);
       }, err => {
         this._erreur = true;
       });
+
+
+
     } else {
       console.log('create');
+
+      // RECUPERATION DE L ANIMAL A PARTIR DU NOM
+
+      console.log(this.observationForm.value);
+      console.log('trouver animal from son nom');
+      this._animaux2 = this._animaux.filter(
+        animal => animal.nomCourant === this.observationForm.value.animalNomCourant);
+      this._nouvelAnimal = this._animaux2[0];
+      this._observation.animal = this._nouvelAnimal;
+
+      // FIN RECUP ANIMAL
+
+      // ATTRIBUTION DES PARAM LIEU AU LIEU DE OBSERVATION
+
+      console.log(this._lieu);
+      this._observation.localisation = this._lieu;
+      this._observation.user = this._user;
+
+      console.log('infos transmises');
+      console.log(this._observation);
+
       this.observationService.create(this._observation).subscribe(res => {
         this.router.navigate(['observation']);
       }, err => {
@@ -141,9 +178,6 @@ export class EditObservationsComponent implements OnInit {
       return this._observationForm.dirty && this._observationForm.invalid;
     }
     return this._observationForm.dirty && this._observationForm.invalid;
- /*   return this._observationForm.untouched || (this.dateObservationCtrl.dirty && this.dateObservationCtrl.invalid)
-      || (this.nombreObservationCtrl.dirty && this.nombreObservationCtrl.invalid)
-      || (this.descriptionCtrl.dirty && this.descriptionCtrl.invalid);*/
   }
 
   get observation(): Observation {
@@ -158,8 +192,41 @@ export class EditObservationsComponent implements OnInit {
     return this._id;
   }
 
+  get lieu(): Lieu {
+    return this._lieu;
+  }
+
+  set lieu(value: Lieu) {
+    this._lieu = value;
+  }
+
   set id(value: number) {
     this._id = value;
+  }
+
+  get animaux(): Animal[] {
+    return this._animaux;
+  }
+
+  set animaux(value: Animal[]) {
+    this._animaux = value;
+  }
+
+
+  get user(): User {
+    return this._user;
+  }
+
+  set user(value: User) {
+    this._user = value;
+  }
+
+  get animal(): Animal {
+    return this._animal;
+  }
+
+  set animal(value: Animal) {
+    this._animal = value;
   }
 
   get erreur(): boolean {
@@ -182,61 +249,12 @@ export class EditObservationsComponent implements OnInit {
     return this._dateObservationCtrl;
   }
 
-
-  get animalId(): number {
-    return this._animalId;
-  }
-
-  set animalId(value: number) {
-    this._animalId = value;
-  }
-
-  get animalOrdreCtrl(): FormControl {
-    return this._animalOrdreCtrl;
-  }
-
-  set animalOrdreCtrl(value: FormControl) {
-    this._animalOrdreCtrl = value;
-  }
-
   get animalNomCourantCtrl(): FormControl {
     return this._animalNomCourantCtrl;
   }
 
   set animalNomCourantCtrl(value: FormControl) {
     this._animalNomCourantCtrl = value;
-  }
-
-  get animalNomScientifiqueCtrl(): FormControl {
-    return this._animalNomScientifiqueCtrl;
-  }
-
-  set animalNomScientifiqueCtrl(value: FormControl) {
-    this._animalNomScientifiqueCtrl = value;
-  }
-
-  get animalEmplacementImageCtrl(): FormControl {
-    return this._animalEmplacementImageCtrl;
-  }
-
-  set animalEmplacementImageCtrl(value: FormControl) {
-    this._animalEmplacementImageCtrl = value;
-  }
-
-  get animalDescriptionCtrl(): FormControl {
-    return this._animalDescriptionCtrl;
-  }
-
-  set animalDescriptionCtrl(value: FormControl) {
-    this._animalDescriptionCtrl = value;
-  }
-
-  get localisationId(): number {
-    return this._localisationId;
-  }
-
-  set localisationId(value: number) {
-    this._localisationId = value;
   }
 
   get localisationPaysCtrl(): FormControl {
@@ -263,50 +281,6 @@ export class EditObservationsComponent implements OnInit {
     this._localisationLocaliteCtrl = value;
   }
 
-  get userId(): number {
-    return this._userId;
-  }
-
-  set userId(value: number) {
-    this._userId = value;
-  }
-
-  get userPseudoCtrl(): FormControl {
-    return this._userPseudoCtrl;
-  }
-
-  set userPseudoCtrl(value: FormControl) {
-    this._userPseudoCtrl = value;
-  }
-
-  get userPrenomCtrl(): FormControl {
-    return this._userPrenomCtrl;
-  }
-
-  set userPrenomCtrl(value: FormControl) {
-    this._userPrenomCtrl = value;
-  }
-
-  get userNomCtrl(): FormControl {
-    return this._userNomCtrl;
-  }
-
-  set userNomCtrl(value: FormControl) {
-    this._userNomCtrl = value;
-  }
-
-  get userImageProfilCtrl(): FormControl {
-    return this._userImageProfilCtrl;
-  }
-
-  set userImageProfilCtrl(value: FormControl) {
-    this._userImageProfilCtrl = value;
-  }
-
-  set dateObservationCtrl(value: FormControl) {
-    this._dateObservationCtrl = value;
-  }
-
   get nombreObservationCtrl(): FormControl {
     return this._nombreObservationCtrl;
   }
@@ -321,5 +295,8 @@ export class EditObservationsComponent implements OnInit {
 
   set descriptionCtrl(value: FormControl) {
     this._descriptionCtrl = value;
+  }
+  public get login(){
+    return sessionStorage.getItem('login');
   }
 }
