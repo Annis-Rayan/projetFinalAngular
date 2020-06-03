@@ -34,6 +34,7 @@ export const routes: Routes = [
   {path: 'users', component: MultipleUsersComponent}, //canActivate: [CanActivateService]},
   {path: 'users/edit', component: SignInComponent}, //canActivate: [CanActivateService]},
   {path: 'users/edit/:id', component: SignInComponent}, //canActivate: [CanActivateService]},
+  {path: 'users/edit/:id/upload', component: SignInComponent},
   {path: 'users/single/:id', component: SingleUserComponent}, //canActivate: [CanActivateService]},
   {path: 'users/provisaryregister', component: ProvisaryRegisterComponent},
 

@@ -23,6 +23,7 @@ export class MultipleUsersComponent implements OnInit {
   private initUsers() {
     this.userService.findAll().subscribe(result => {
       this._users = result;
+      //console.log(this.users);
     });
   }
 

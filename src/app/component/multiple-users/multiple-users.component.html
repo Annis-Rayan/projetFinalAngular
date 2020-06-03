@@ -24,7 +24,7 @@
         <td>{{u.pseudo}}</td>
         <td>{{u.prenom}}</td>
         <td>{{u.nom}}</td>
-        <td>{{u.imageProfil}}</td>
+        <td><img [src]="u.imageProfil">{{u.imageProfil}}</td>
 
         <td><a class="btn btn-outline-info" [routerLink]="['/users','edit',u.id]" routerLinkActive="active">Edition</a>
         </td>

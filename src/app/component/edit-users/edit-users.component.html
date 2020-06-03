@@ -35,10 +35,11 @@
   -->
     <input type="file" (change)="onFileChanged($event)">
     <img [src]="imgURL" height="100" *ngIf="imgURL">
+
   </div>
 
   <div>
-    <button type="submit" class="btn btn-info"
+    <button type="submit" class="btn btn-info" (click)="onUpload()" value="upload"
             [disabled]="disable()">Enregistrer
     </button>
     <a [routerLink]="['/users']" routerLinkActive="active" class="btn btn-light">Annuler</a>
