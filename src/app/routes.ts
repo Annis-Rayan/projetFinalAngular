@@ -19,6 +19,8 @@ import {SingleAnimalComponent} from './component/single-animal/single-animal.com
 import {SingleLieuComponent} from './component/single-lieu/single-lieu.component';
 import {SingleObsComponent} from './component/single-obs/single-obs.component';
 import {SingleUserComponent} from './component/single-user/single-user.component';
+import {TestCommand} from '@angular/cli/commands/test-impl';
+import {TestComponent} from './component/test/test.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -50,6 +52,7 @@ export const routes: Routes = [
   {path: 'localisation/edit', component: EditLieuxComponent},// canActivate: [CanActivateService]},
   {path: 'localisation/edit/:id', component: EditLieuxComponent}, //canActivate: [CanActivateService]},
 
+  {path: 'image', component: TestComponent}
 
 
 ];

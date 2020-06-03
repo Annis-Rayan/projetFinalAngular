@@ -20,8 +20,8 @@ export class UserService {
     //this.headers = new HttpHeaders({
     //  'Content-Type': 'application/json',
     //  'Authorization': 'Basic ' + sessionStorage.getItem('user') // TO CHECK
-   // });
-   // this.options = {headers: this.headers};
+    // });
+    // this.options = {headers: this.headers};
   }
 
   public findAll(): Observable<Array<User>> {
@@ -40,18 +40,20 @@ export class UserService {
   }
 
   public update(user: User): Observable<any> {
+    console.log(user);
     this.initOption();
-    const o: object = {
-      'id': user.id,
-      'pseudo': user.pseudo,
-      'prenom': user.prenom,
-      'nom': user.nom,
-      'imageProfil': user.imageProfil
-    };
+     const o: object = {
+        'id': user.id,
+        'pseudo': user.pseudo,
+        'prenom': user.prenom,
+        'nom': user.nom,
+        'imageProfil': user.imageProfil
+      };
     return this.httpClient.put(this.URL + '/' + user.id, o, this.options);
   }
 
   public create(user: User): Observable<any> {
+    console.log(user);
     this.initOption();
     const o: object = {
       'id': user.id,
@@ -68,7 +70,7 @@ export class UserService {
     return this.httpClient.get(`${this.URL}/nom/${pseudo}`, this.options);
   }
 
-  public findByPseudo(pseudo: string): Observable<User>{
+  public findByPseudo(pseudo: string): Observable<User> {
     this.initOption();
     return this.httpClient.get<User>(this.URL + '/' + pseudo, this.options);
   }
