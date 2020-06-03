@@ -33,6 +33,7 @@ import { FormLoginComponent } from './component/form-login/form-login.component'
 import { InscriptionComponent } from './component/inscription/inscription.component';
 import { SingleAnimalComponent } from './component/single-animal/single-animal.component';
 import { SingleLieuComponent } from './component/single-lieu/single-lieu.component';
+import { TestComponent } from './component/test/test.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { SingleLieuComponent } from './component/single-lieu/single-lieu.compone
     FormLoginComponent,
     InscriptionComponent,
     SingleAnimalComponent,
-    SingleLieuComponent
+    SingleLieuComponent,
+    TestComponent
 
   ],
   imports: [

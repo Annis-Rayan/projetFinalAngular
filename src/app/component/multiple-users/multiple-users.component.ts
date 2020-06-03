@@ -10,13 +10,7 @@ import {UserService} from '../../services/user.service';
 export class MultipleUsersComponent implements OnInit {
 
   private _users: User[] = [
-   /* {
-      id: 1,
-      pseudo: 'annis',
-      prenom: 'aaa',
-      nom: 'bbb',
-      imageProfil: 'mmm'
-    }*/
+
   ];
 
   constructor(private userService: UserService) {

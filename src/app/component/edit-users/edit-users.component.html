@@ -31,7 +31,10 @@
   </div>
   <div class="form-group">
     <label>Photo de profil:</label><br>
-    <input type="file" accept="image/jpeg, image/png" [(ngModel)]="user.imageProfil" class="img-rounded" formControlName="imageProfil">
+   <!-- <input type="file" accept="image/jpeg, image/png" [(ngModel)]="user.imageProfil" class="img-rounded" formControlName="imageProfil">
+  -->
+    <input type="file" (change)="onFileChanged($event)">
+    <img [src]="imgURL" height="100" *ngIf="imgURL">
   </div>
 
   <div>

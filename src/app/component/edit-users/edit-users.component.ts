@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {map} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-users',
@@ -22,8 +23,9 @@ export class EditUsersComponent implements OnInit {
   private _nomCtrl: FormControl;
   private _imageProfilCtrl: FormControl;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
-    this._pseudoCtrl = fb.control('', Validators.required);// control => this.checkPseudo(control));
+
+  constructor(private httpClient: HttpClient, private fb: FormBuilder, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
+    this._pseudoCtrl = fb.control('', Validators.required); // control => this.checkPseudo(control));
     this._nomCtrl = fb.control('', Validators.required);
     this._prenomCtrl = fb.control('', Validators.required);
     this.userForm = fb.group({
@@ -33,6 +35,51 @@ export class EditUsersComponent implements OnInit {
       imageProfil: this.imageProfilCtrl
     });
   }
+
+  // Partie implémentation image
+
+  public selectedFile;
+  public event1;
+  imgURL: any;
+  receivedImageData: any = {};
+  base64Data: any;
+  convertedImage: any;
+
+  public onFileChanged(event) {
+    console.log(event);
+    this.selectedFile = event.target.files[0];
+
+    // Below part is used to display the selected image
+    let reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event2) => {
+      this.imgURL = reader.result;
+    };
+
+  }
+
+
+
+  onUpload() {
+
+    const uploadData = new FormData();
+    uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
+
+
+    this.httpClient.post('http://localhost:8080/web/rest/users/{id}/upload', uploadData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.receivedImageData = res;
+          this.base64Data = this.receivedImageData.pic;
+          this.convertedImage = 'data:image/jpeg;base64,' + this.base64Data;
+        },
+        err => console.log('Error Occured during saving: ' + err)
+      );
+
+
+  }
+
 
   checkPseudo(control: AbstractControl) {
     return this.userService.checkPseudo(control.value).pipe(map(res => {
