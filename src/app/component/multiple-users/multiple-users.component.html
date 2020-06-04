@@ -26,10 +26,11 @@
       </tr>
       <tr *ngFor="let u of users">
         <td>{{u.id}}</td>
-        <td>{{u.pseudo}}</td>
+        <td><a class="text-info" [routerLink]="['/users','single',u.id]"
+               routerLinkActive="active"> {{u.pseudo}}</a></td>
         <td>{{u.prenom}}</td>
         <td>{{u.nom}}</td>
-        <td><img [src]="u.imageProfil">{{u.imageProfil}}</td>
+        <td><img [src]="u.imageProfil"></td>
 
         <td><a class="btn btn-outline-info" [routerLink]="['/users','edit',u.id]" routerLinkActive="active">Edition</a>
         </td>

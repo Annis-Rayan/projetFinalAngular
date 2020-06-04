@@ -6,6 +6,7 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {ImageTestService} from '../image-test.service';
 
 @Component({
   selector: 'app-edit-users',
@@ -25,7 +26,7 @@ export class EditUsersComponent implements OnInit {
   private _imageProfilCtrl: FormControl;
 
 
-  constructor(private httpClient: HttpClient, private fb: FormBuilder, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private imageTestService: ImageTestService, private httpClient: HttpClient, private fb: FormBuilder, private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
     this._pseudoCtrl = fb.control('', Validators.required); // control => this.checkPseudo(control));
     this._nomCtrl = fb.control('', Validators.required);
     this._prenomCtrl = fb.control('', Validators.required);
@@ -39,22 +40,22 @@ export class EditUsersComponent implements OnInit {
 
   // Partie implémentation image
 
-  public selectedFile;
-  public event1;
-  imgURL: any;
-  receivedImageData: any = {};
-  base64Data: any;
-  convertedImage: any;
+  private _selectedFile;
+  private _event1;
+  private _imgURL: any;
+  private _receivedImageData: any = {};
+  private _base64Data: any;
+  private _convertedImage: any;
 
   public onFileChanged(event) {
     console.log(event);
-    this.selectedFile = event.target.files[0];
+    this._selectedFile = event.target.files[0];
 
     // Below part is used to display the selected image
     let reader = new FileReader();
     reader.readAsDataURL(event.target.files[0]);
     reader.onload = (event2) => {
-      this.imgURL = reader.result;
+      this._imgURL = reader.result;
     };
 
   }
@@ -63,16 +64,16 @@ export class EditUsersComponent implements OnInit {
   onUpload() {
 
     const uploadData = new FormData();
-    uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
+    uploadData.append('myFile', this._selectedFile, this._selectedFile.name);
     console.log(uploadData);
 
     this.httpClient.post('http://localhost:8080/web/rest/users/edit/upload/' + this._id, uploadData)
       .subscribe(
         res => {
           console.log(res);
-          this.receivedImageData = res;
-          this.base64Data = this.receivedImageData.pic;
-          this.convertedImage = 'data:image/jpeg;base64,' + this.base64Data;
+          this._receivedImageData = res;
+          this._base64Data = this._receivedImageData.pic;
+          this._convertedImage = 'data:image/jpeg;base64,' + this._base64Data;
         },
         err => console.log('Error Occured during saving: ' + err)
       );
@@ -114,15 +115,21 @@ export class EditUsersComponent implements OnInit {
     if (this._user.id) {
       this.userService.update(this._user).subscribe(res => {
         this.router.navigate(['/users']);
+        //this.imageTestService.onFileChanged(this.convertedImage);
+        //this.imageTestService.onUpload();
       }, err => {
         this._erreur = true;
       });
+
     } else {
       this.userService.create(this._user).subscribe(res => {
         this.router.navigate(['users']);
+        //this.imageTestService.onFileChanged(this.convertedImage);
+        //this.imageTestService.onUpload();
       }, err => {
         this._erreur = true;
       });
+
     }
   }
 
@@ -197,5 +204,53 @@ export class EditUsersComponent implements OnInit {
 
   set imageProfilCtrl(value: FormControl) {
     this._imageProfilCtrl = value;
+  }
+
+  get selectedFile() {
+    return this._selectedFile;
+  }
+
+  set selectedFile(value) {
+    this._selectedFile = value;
+  }
+
+  get event1() {
+    return this._event1;
+  }
+
+  set event1(value) {
+    this._event1 = value;
+  }
+
+  get imgURL(): any {
+    return this._imgURL;
+  }
+
+  set imgURL(value: any) {
+    this._imgURL = value;
+  }
+
+  get receivedImageData(): any {
+    return this._receivedImageData;
+  }
+
+  set receivedImageData(value: any) {
+    this._receivedImageData = value;
+  }
+
+  get base64Data(): any {
+    return this._base64Data;
+  }
+
+  set base64Data(value: any) {
+    this._base64Data = value;
+  }
+
+  get convertedImage(): any {
+    return this._convertedImage;
+  }
+
+  set convertedImage(value: any) {
+    this._convertedImage = value;
   }
 }
