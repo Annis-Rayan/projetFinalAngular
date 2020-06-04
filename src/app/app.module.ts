@@ -34,6 +34,7 @@ import { InscriptionComponent } from './component/inscription/inscription.compon
 import { SingleAnimalComponent } from './component/single-animal/single-animal.component';
 import { SingleLieuComponent } from './component/single-lieu/single-lieu.component';
 import { TestComponent } from './component/test/test.component';
+import { CreateAnimalPageComponent } from './component/create-animal-page/create-animal-page.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { TestComponent } from './component/test/test.component';
     InscriptionComponent,
     SingleAnimalComponent,
     SingleLieuComponent,
-    TestComponent
+    TestComponent,
+    CreateAnimalPageComponent
 
   ],
   imports: [

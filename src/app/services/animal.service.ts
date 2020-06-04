@@ -70,7 +70,7 @@ export class AnimalService {
       'nomCourant': animal.nomCourant,
       'nomScientifique': animal.nomScientifique,
       'emplacementImage': {
-        'id': animal.emplacementImage
+        'id': 1
       },
       'description': animal.description,
       'ordre': animal.ordre
