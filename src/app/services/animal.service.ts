@@ -53,7 +53,9 @@ export class AnimalService {
       'id': animal.id,
       'nomCourant': animal.nomCourant,
       'nomScientifique': animal.nomScientifique,
-      'emplacementImage': animal.emplacementImage,
+      'emplacementImage': {
+        'id': animal.emplacementImage
+      },
       'description': animal.description,
       'ordre': animal.ordre
     };
@@ -67,7 +69,9 @@ export class AnimalService {
       'id': animal.id,
       'nomCourant': animal.nomCourant,
       'nomScientifique': animal.nomScientifique,
-      'emplacementImage': animal.emplacementImage,
+      'emplacementImage': {
+        'id': animal.emplacementImage
+      },
       'description': animal.description,
       'ordre': animal.ordre
     };

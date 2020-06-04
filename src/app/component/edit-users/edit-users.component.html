@@ -41,12 +41,12 @@
       <!-- <input type="file" accept="image/jpeg, image/png" [(ngModel)]="user.imageProfil" class="img-rounded" formControlName="imageProfil">
      -->
       <input type="file" (change)="onFileChanged($event)">
-      <img [src]="imgURL" height="100" *ngIf="imgURL">
+      <img [src]="imgURL" height="100" *ngIf="imgURL"><br>
       <input type="button" (click)="onUpload()" value="upload">
 
     </div>
 
-    <img [src]="convertedImage">
+    <!--<img [src]="convertedImage">-->
 
     <div>
       <button type="submit" class="btn btn-info"

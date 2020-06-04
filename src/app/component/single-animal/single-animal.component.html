@@ -1,18 +1,66 @@
+<div class="container" id="bodywrapper">
 
-<!-- container -->
-<div class="container">
 
   <ol class="breadcrumb">
     <a [routerLink]="['/home']" routerLinkActive="active">Home</a> &nbsp;-&nbsp;
-    <a [routerLink]="['/animaux']" routerLinkActive="active"> Liste des animaux  </a> &nbsp;-&nbsp;
+    <a [routerLink]="['/animal']" routerLinkActive="active"> Liste des animaux </a> &nbsp;-&nbsp;
+    {{animal.nomCourant}}
 
-      {{animal.nomCourant}}
+
   </ol>
   <br><br>
-  Voici le {{animal.nomCourant}}, ordre: {{animal.ordre}}, nom scientifique: {{animal.nomScientifique}}
-  <br><br><br>
-  <div>
-    {{animal.description}}
-  </div>
 
+
+
+  <div id="wrapper" class="bootstrap">
+
+
+
+
+
+    <div class="container" style="background-color:white">
+
+
+      <div class="row">
+        <div class="col-sm-4">
+          <h1><img  [src]="getImage(animal) | async"></h1>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="list-group">
+                <a class="list-group-item" href="/observations/whimbrelbirder">
+
+                  <i class="fa fa-binoculars"></i>
+                  Observations... à venir
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-sm-8" style="background-color:white">
+          <h1>
+            {{animal.nomCourant}} <br>
+            <small class="role">
+             ( {{animal.nomScientifique}}, {{animal.ordre}} )
+              <a href="/help#curators"><span class="glyphicon glyphicon glyphicon-question-sign"></span>
+              </a></small>
+          </h1>
+
+          <div id="description">
+            <p class="lead">
+
+              <br>
+              {{animal.description}}
+            </p>
+
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </div>
+

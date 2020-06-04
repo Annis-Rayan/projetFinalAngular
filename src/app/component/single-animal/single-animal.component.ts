@@ -3,6 +3,8 @@ import {AnimalService} from '../../services/animal.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Animal} from '../model/animal';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {User} from '../model/user';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-single-animal',
@@ -12,10 +14,12 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 export class SingleAnimalComponent implements OnInit {
 
   private _animal: Animal = new Animal();
+  private _animals: Animal[] = [];
   private _id: number;
   private _erreur: boolean = false;
 
-
+  private _base64Data: any;
+  private _convertedImage: any;
 
   constructor( private animalService: AnimalService,
               private activatedRoute: ActivatedRoute, private router: Router) {
@@ -34,9 +38,43 @@ export class SingleAnimalComponent implements OnInit {
         );
       }
     });
-
+    this.animals[0] = this.animal;
   }
 
+  public getImage(animal: Animal): Observable<string> {
+    if (animal.emplacementImage != null) {
+      this._base64Data = animal.emplacementImage.pic;
+      this._convertedImage = 'data:image/jpeg;base64,' + this._base64Data;
+    }
+
+    return new Observable(value => {
+      value.next(this._convertedImage);
+    });
+  }
+
+  get animals(): Animal[] {
+    return this._animals;
+  }
+
+  set animals(value: Animal[]) {
+    this._animals = value;
+  }
+
+  get base64Data(): any {
+    return this._base64Data;
+  }
+
+  set base64Data(value: any) {
+    this._base64Data = value;
+  }
+
+  get convertedImage(): any {
+    return this._convertedImage;
+  }
+
+  set convertedImage(value: any) {
+    this._convertedImage = value;
+  }
 
   get animal(): Animal {
     return this._animal;

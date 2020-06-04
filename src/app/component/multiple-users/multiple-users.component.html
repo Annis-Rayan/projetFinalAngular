@@ -54,7 +54,7 @@
       <tr *ngFor="let u of users">
         <td>{{u.id}}</td>
         <td>{{u.pseudo}}</td>
-        <td>{{u.imageProfil}}</td>
+        <td><img [src]="getImage(u) | async" ></td>
 
       </tr>
     </table>

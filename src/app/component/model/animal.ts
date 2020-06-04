@@ -2,8 +2,8 @@ export class Animal {
   constructor(private _id?: number,
               private _nomCourant?: string,
               private _nomScientifique?: string,
-              private _emplacementImage?:string,
-              private _description?:string,
+              private _emplacementImage?: any,
+              private _description?: string,
               private _ordre?: string) {
 
   }
@@ -41,11 +41,11 @@ export class Animal {
     this._nomScientifique = value;
   }
 
-  get emplacementImage(): string {
+  get emplacementImage(): any {
     return this._emplacementImage;
   }
 
-  set emplacementImage(value: string) {
+  set emplacementImage(value: any) {
     this._emplacementImage = value;
   }
 
