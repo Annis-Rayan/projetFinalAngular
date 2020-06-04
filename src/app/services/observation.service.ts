@@ -81,7 +81,7 @@ export class ObservationService {
       'animal': observation.animal,
       'utilisateur': observation.user,
       'emplacementImage': {
-        'id': observation.emplacementImage
+        'id': 1
       }
     };
     console.log(o);

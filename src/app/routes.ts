@@ -22,6 +22,7 @@ import {SingleUserComponent} from './component/single-user/single-user.component
 import {TestCommand} from '@angular/cli/commands/test-impl';
 import {TestComponent} from './component/test/test.component';
 import {CreateAnimalPageComponent} from './component/create-animal-page/create-animal-page.component';
+import {CreateObservationPageComponent} from './component/create-observation-page/create-observation-page.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -40,6 +41,7 @@ export const routes: Routes = [
   {path: 'users/provisaryregister', component: ProvisaryRegisterComponent},
 
   {path: 'observation', component: ObservationsComponent},
+  {path: 'observation/create', component: CreateObservationPageComponent},
   {path: 'observation/single/:id', component: SingleObsComponent},
   {path: 'observation/edit', component: EditObservationsComponent},// canActivate: [CanActivateService]},
   {path: 'observation/edit/:id', component: EditObservationsComponent}, //canActivate: [CanActivateService]},

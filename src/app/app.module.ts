@@ -35,6 +35,7 @@ import { SingleAnimalComponent } from './component/single-animal/single-animal.c
 import { SingleLieuComponent } from './component/single-lieu/single-lieu.component';
 import { TestComponent } from './component/test/test.component';
 import { CreateAnimalPageComponent } from './component/create-animal-page/create-animal-page.component';
+import { CreateObservationPageComponent } from './component/create-observation-page/create-observation-page.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { CreateAnimalPageComponent } from './component/create-animal-page/create
     SingleAnimalComponent,
     SingleLieuComponent,
     TestComponent,
-    CreateAnimalPageComponent
+    CreateAnimalPageComponent,
+    CreateObservationPageComponent
 
   ],
   imports: [

@@ -16,21 +16,21 @@
   <ng-container *ngIf="login;else nonConnecte">
   <table class="table">
     <tr>
-      <th>id</th>
+ <!--     <th>id</th> -->
       <th>Date de l'observation</th>
-      <th>Nombre d'observations</th>
+      <th>Nombre d'animaux </th>
       <th>Description</th>
       <th>lieu</th>
       <th>animal</th>
-      <th>utilisateur</th>
+  <!--    <th>utilisateur</th> -->
       <th></th>
       <th></th>
     </tr>
     <tr *ngFor="let o of observations">
-      <td>{{o.id}}</td>
+<!--      <td>{{o.id}}</td> -->
       <td><a class="text-info" [routerLink]="['/observation','single',o.id]"
              routerLinkActive="active">{{o.dateObservation}}</a></td>
-      <td>{{o.nombreObservations}}</td>
+      <td>{{o.nombre}}</td>
       <td>{{o.description}}</td>
       <td><a class="text-info" [routerLink]="['/localisation','single',o.localisation.id]"
              routerLinkActive="active">
@@ -40,7 +40,6 @@
              routerLinkActive="active">
         {{o.animal.nomCourant}}
       </a></td>
-
 
      <!--  <td>{{o.user.pseudo}}</td> -->
       <td></td>
@@ -54,7 +53,7 @@
   </table>
 
     <br>
-    <div><a class="btn btn-outline-info" [routerLink]="['/observation','edit']" routerLinkActive="active"><i
+    <div><a class="btn btn-outline-info" [routerLink]="['/observation','create']" routerLinkActive="active"><i
       class="fa fa-plus"></i> Ajouter une observation</a></div>
     <br>
 
@@ -65,20 +64,20 @@
   <ng-template #nonConnecte>
     <table class="table">
       <tr>
-        <th>id</th>
+<!--        <th>id</th> -->
         <th>Date de l'observation</th>
-        <th>Nombre d'observations</th>
+        <th>Nombre d'animaux </th>
         <th>Description</th>
         <th>lieu</th>
         <th>animal</th>
-        <th>utilisateur</th>
+<!--        <th>utilisateur</th> -->
         <th></th>
         <th></th>
       </tr>
       <tr *ngFor="let o of observations">
-        <td>{{o.id}}</td>
+<!--        <td>{{o.id}}</td> -->
         <td>{{o.dateObservation}}</td>
-        <td>{{o.nombreObservations}}</td>
+        <td>{{o.nombre}}</td>
         <td>{{o.description}}</td>
         <td><a class="text-info" [routerLink]="['/localisation','single',o.localisation.id]"
                routerLinkActive="active">
@@ -91,7 +90,7 @@
 
 
         <!--  <td>{{o.user.pseudo}}</td> -->
-        <td></td>
+
       </tr>
     </table>
   </ng-template>

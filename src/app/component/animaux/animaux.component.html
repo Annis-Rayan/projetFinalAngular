@@ -56,22 +56,22 @@
   <ng-template #nonConnecte>
     <table class="table">
       <tr>
-        <th>id</th>
+
         <th>Ordre</th>
         <th>Nom courant</th>
         <th>Nom latin</th>
-        <th>Photo</th>
+
         <th>Description</th>
         <th></th>
         <th></th>
       </tr>
       <tr *ngFor="let a of animaux">
-        <td>{{a.id}}</td>
+
         <td>{{a.ordre}}</td>
         <td><a class="text-info" [routerLink]="['/animal','single',a.id]"
                routerLinkActive="active"> {{a.nomCourant}}</a></td>
         <td>{{a.nomScientifique}}</td>
-        <td>{{a.emplacementImage}}</td>
+
         <td>{{a.description}}</td>
 
       </tr>

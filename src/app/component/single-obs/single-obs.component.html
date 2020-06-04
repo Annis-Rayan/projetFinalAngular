@@ -25,7 +25,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="list-group">
-                <a class="list-group-item" href="/observations/whimbrelbirder">
+                <a class="list-group-item">
 
                   <i class="fa fa-binoculars"></i>
                   Observations... à venir
@@ -42,8 +42,9 @@
               ( {{observation.animal.nomScientifique}}, {{observation.animal.ordre}} )<br>
               Observé à: {{observation.localisation.localite}}, {{observation.localisation.region}},
               {{observation.localisation.pays}} <br>
-              Observé par : <a class="text-info" [routerLink]="['/users',observation.user.id]"
-                               routerLinkActive="active"></a>{{observation.user.pseudo}}
+              Observé le: {{observation.dateObservation}} <br>
+     <!--       Observé par : {{observation.user.pseudo}} -->
+
               <a href="/help#curators"><span class="glyphicon glyphicon glyphicon-question-sign"></span>
               </a></small>
           </h1>

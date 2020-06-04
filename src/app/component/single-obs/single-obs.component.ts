@@ -4,6 +4,8 @@ import {Observation} from '../model/observation';
 import {ObservationService} from '../../services/observation.service';
 import {Animal} from '../model/animal';
 import {Observable} from 'rxjs';
+import {UserService} from '../../services/user.service';
+import {User} from '../model/user';
 
 @Component({
   selector: 'app-single-obs',
@@ -14,6 +16,7 @@ export class SingleObsComponent implements OnInit {
 
   private _observations: Observation[] = [];
   private _observation: Observation = new Observation();
+  private _user= new User();
   private _id: number;
   private _erreur: boolean = false;
 
@@ -34,6 +37,7 @@ export class SingleObsComponent implements OnInit {
           res => {
             this._observation = res;
             console.log(this._observation);
+            this._user.pseudo = this.observation.user.pseudo;
           }
         );
       }
@@ -55,6 +59,14 @@ export class SingleObsComponent implements OnInit {
     });
   }
 
+
+  get user(): User {
+    return this._user;
+  }
+
+  set user(value: User) {
+    this._user = value;
+  }
 
   get observations(): Observation[] {
     return this._observations;

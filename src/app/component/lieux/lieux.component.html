@@ -15,7 +15,7 @@
   <ng-container *ngIf="login;else nonConnecte">
     <table class="table">
       <tr>
-        <th>id</th>
+<!--        <th>id</th> -->
         <th>Pays</th>
         <th>Region</th>
         <th>Localite</th>
@@ -24,7 +24,7 @@
       </tr>
 
       <tr *ngFor="let l of lieux">
-        <td>{{l.id}}</td>
+ <!--       <td>{{l.id}}</td> -->
         <td>{{l.pays}}</td>
         <td>{{l.region}}</td>
         <td>{{l.localite}}</td>
@@ -43,7 +43,7 @@
   <ng-template #nonConnecte>
     <table class="table">
       <tr>
-        <th>id</th>
+  <!--      <th>id</th> -->
         <th>Pays</th>
         <th>Region</th>
         <th>Localite</th>
@@ -52,7 +52,7 @@
       </tr>
 
       <tr *ngFor="let l of lieux">
-        <td>{{l.id}}</td>
+<!--         <td>{{l.id}}</td>  -->
         <td>{{l.pays}}</td>
         <td>{{l.region}}</td>
         <td>{{l.localite}}</td>
