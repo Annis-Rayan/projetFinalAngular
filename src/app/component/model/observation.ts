@@ -10,7 +10,7 @@ export class Observation {
               private _localisation?: Lieu,
               private _user?: User,
               private _dateObservation?: Date,
-              private _nombreObservations?: number,
+              private _nombre?: number,
               private _description?: string
   ) {
   }
@@ -56,11 +56,11 @@ export class Observation {
   }
 
   get nombreObservations(): number {
-    return this._nombreObservations;
+    return this._nombre;
   }
 
   set nombreObservations(value: number) {
-    this._nombreObservations = value;
+    this._nombre = value;
   }
 
   get description(): string {

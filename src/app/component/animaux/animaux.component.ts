@@ -81,6 +81,7 @@ export class AnimauxComponent implements OnInit {
     this._animaux = value;
   }
   public get login(){
+    console.log(sessionStorage.getItem('login'));
     return sessionStorage.getItem('login');
   }
 

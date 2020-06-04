@@ -42,23 +42,42 @@ export class ObservationService {
 
   public update(observation: Observation): Observable<any> {
     this.initOption();
+    const l: object = {
+      'pays': observation.localisation.pays,
+      'region': observation.localisation.region,
+      'localite': observation.localisation.localite
+    };
     const o: object = {
       'id': observation.id,
       'dateObservation': observation.dateObservation,
-      'nombreObservations': observation.nombreObservations,
-      'description': observation.description
+      'nombre': observation.nombreObservations,
+      'description': observation.description,
+      'localisation': l,
+      'animal': observation.animal,
+      'utilisateur': observation.user
     };
     return this.httpClient.put(this.URL + '/' + observation.id, o, this.options);
   }
 
   public create(observation: Observation): Observable<any> {
     this.initOption();
+    console.log(observation.localisation);
+
+    const l: object = {
+      'pays': observation.localisation.pays,
+      'region': observation.localisation.region,
+      'localite': observation.localisation.localite
+    };
     const o: object = {
       'id': observation.id,
       'dateObservation': observation.dateObservation,
-      'nombreObservations': observation.nombreObservations,
-      'description': observation.description
+      'nombre': observation.nombreObservations,
+      'description': observation.description,
+      'localisation': l,
+      'animal': observation.animal,
+      'utilisateur': observation.user
     };
+    console.log(o);
     return this.httpClient.post(this.URL, o, this.options);
   }
 }

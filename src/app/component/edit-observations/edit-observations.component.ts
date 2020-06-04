@@ -132,6 +132,7 @@ export class EditObservationsComponent implements OnInit {
       console.log(this._lieu);
       this._observation.localisation = this._lieu;
       this._observation.user = this._user;
+      this._observation.nombreObservations = +this._observation.nombreObservations;
       console.log('infos transmises');
       console.log(this._observation);
       this.observationService.update(this._observation).subscribe(res => {
@@ -159,8 +160,13 @@ export class EditObservationsComponent implements OnInit {
       // ATTRIBUTION DES PARAM LIEU AU LIEU DE OBSERVATION
 
       console.log(this._lieu);
-      this._observation.localisation = this._lieu;
+      this._observation.localisation = new Lieu();
+
+      this.observation.localisation.pays = this.observationForm.value.localisationPays;
+      this._observation.localisation.region = this.observationForm.value.localisationRegion;
+      this._observation.localisation.localite = this.observationForm.value.localisationLocalite;
       this._observation.user = this._user;
+      this._observation.nombreObservations = +this._observation.nombreObservations;
 
       console.log('infos transmises');
       console.log(this._observation);
