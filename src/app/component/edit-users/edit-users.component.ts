@@ -74,6 +74,7 @@ export class EditUsersComponent implements OnInit {
           this._receivedImageData = res;
           this._base64Data = this._receivedImageData.pic;
           this._convertedImage = 'data:image/jpeg;base64,' + this._base64Data;
+          this.user.imageProfil = this.receivedImageData.id;
         },
         err => console.log('Error Occured during saving: ' + err)
       );
@@ -112,6 +113,7 @@ export class EditUsersComponent implements OnInit {
   }
 
   public save() {
+    console.log(this.user);
     if (this._user.id) {
       this.userService.update(this._user).subscribe(res => {
         this.router.navigate(['/users']);

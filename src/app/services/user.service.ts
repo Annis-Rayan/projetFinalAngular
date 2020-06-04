@@ -47,8 +47,11 @@ export class UserService {
         'pseudo': user.pseudo,
         'prenom': user.prenom,
         'nom': user.nom,
-        'imageProfil': user.imageProfil
+        'imageProfil': {
+          'id': user.imageProfil
+        }
       };
+     console.log(o);
     return this.httpClient.put(this.URL + '/' + user.id, o, this.options);
   }
 

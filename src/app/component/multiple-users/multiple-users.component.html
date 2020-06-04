@@ -2,7 +2,7 @@
 
   <ol class="breadcrumb">
     <li><a [routerLink]="['/home']" routerLinkActive="active">Home </a></li>
-    <li>, Utilisateurs</li>
+
   </ol>
   <br>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -30,7 +30,7 @@
                routerLinkActive="active"> {{u.pseudo}}</a></td>
         <td>{{u.prenom}}</td>
         <td>{{u.nom}}</td>
-        <td><img [src]="u.imageProfil"></td>
+        <td><img [src]="getImage(u) | async" ></td>
 
         <td><a class="btn btn-outline-info" [routerLink]="['/users','edit',u.id]" routerLinkActive="active">Edition</a>
         </td>

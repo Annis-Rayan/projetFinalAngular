@@ -2,7 +2,7 @@
 
   <ol class="breadcrumb">
     <li><a [routerLink]="['/home']" routerLinkActive="active">Home </a></li>
-    <li>, Inscription</li>
+
   </ol>
   <br>
 
@@ -11,7 +11,7 @@
   <form (ngSubmit)="save()" [formGroup]="inscriptionForm">
     <div class="form-group">
       <label>Login:</label>
-      <input [(ngModel)]="login.login" class="form-control" formControlName="login">
+      <input [(ngModel)]="login.login" class="form-control" formControlName="login" maxlength="10">
       <div *ngIf="loginCtrl.dirty&&loginCtrl.hasError('required')" class="alert alert-danger">
         Login requis
       </div>
@@ -20,8 +20,8 @@
       </div>
     </div>
     <div class="form-group">
-      <label>mot de passe:</label>
-      <input [(ngModel)]="login.password" class="form-control" formControlName="password">
+      <label>Mot de passe:</label>
+      <input [(ngModel)]="login.password" class="form-control" maxlength="10" formControlName="password">
       <div *ngIf="passwordCtrl.dirty&&passwordCtrl.hasError('required')" class="alert alert-danger">
         Mot de passe requis
       </div>
@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
       <label>Confirmer votre mot de passe:</label>
-      <input class="form-control" formControlName="confirmation">
+      <input class="form-control" formControlName="confirmation" maxlength="10">
       <div *ngIf="confirmationCtrl.dirty&&confirmationCtrl.hasError('required')" class="alert alert-danger">
         Confirmation obligatoire
       </div>
@@ -40,10 +40,10 @@
       </div>
     </div>
     <div>
-      <button type="submit" class="btn btn-outline-success"
+      <button type="submit" class="btn btn-info"
               [disabled]="inscriptionForm.invalid">Enregistrer
       </button>
-      <a [routerLink]="['/home']" routerLinkActive="active" class="btn btn-outline-warning">Annuler</a>
+      <a [routerLink]="['/home']" routerLinkActive="active" class="btn btn-light">Annuler</a>
     </div>
   </form>
 </div>

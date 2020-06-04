@@ -16,6 +16,11 @@ export class LoginService {
       'Content-Type': 'application/json',
       'Authorization': 'Basic ' + btoa(`${login.login}:${login.password}`)
     });
-    return this.http.get('http://localhost:8080/web/rest/login', {headers: headers});
+    const log = {
+      'login': login.login,
+      'password': login.password
+    };
+    console.log(log);
+    return this.http.post('http://localhost:8080/web/rest/login', log, {headers: headers});
   }
 }
