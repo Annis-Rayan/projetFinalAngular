@@ -28,7 +28,8 @@
     </tr>
     <tr *ngFor="let o of observations">
       <td>{{o.id}}</td>
-      <td>{{o.dateObservation}}</td>
+      <td><a class="text-info" [routerLink]="['/observation','single',o.id]"
+             routerLinkActive="active">{{o.dateObservation}}</a></td>
       <td>{{o.nombreObservations}}</td>
       <td>{{o.description}}</td>
       <td><a class="text-info" [routerLink]="['/localisation','single',o.localisation.id]"

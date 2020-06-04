@@ -39,6 +39,7 @@ export class SingleAnimalComponent implements OnInit {
       }
     });
     this.animals[0] = this.animal;
+    console.log(this.animal);
   }
 
   public getImage(animal: Animal): Observable<string> {

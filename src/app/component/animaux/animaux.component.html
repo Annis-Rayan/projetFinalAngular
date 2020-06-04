@@ -28,7 +28,7 @@
         <th>Ordre</th>
         <th>Nom courant</th>
         <th>Nom latin</th>
-        <th>Photo</th>
+       <!-- <th>Photo</th>-->
         <th>Description</th>
         <th></th>
         <th></th>
@@ -39,7 +39,7 @@
         <td><a class="text-info" [routerLink]="['/animal','single',a.id]"
                routerLinkActive="active"> {{a.nomCourant}}</a></td>
         <td>{{a.nomScientifique}}</td>
-        <td>{{a.emplacementImage}}</td>
+        <!--<td>{{a.emplacementImage}}</td>-->
         <td>{{a.description}}</td>
         <td><a class="btn btn-outline-info" [routerLink]="['/animal','edit',a.id]" routerLinkActive="active">Edition</a>
         </td>

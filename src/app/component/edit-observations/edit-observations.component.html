@@ -35,6 +35,12 @@
                 formControlName="description">Description...</textarea>
     </div> -->
 
+    <div class="form-group">
+      <label>Photo:</label>
+      <input type="file" (change)="onFileChanged($event)">
+      <img [src]="imgURL" height="100" *ngIf="imgURL"><br>
+      <input type="button" (click)="onUpload()" value="upload">
+    </div>
 
      FIN ANIMAL, ON RENSEIGNE LIEU
     <h1> Renseignez le lieu d'observation:</h1><br>

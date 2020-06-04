@@ -11,8 +11,26 @@ export class Observation {
               private _user?: User,
               private _dateObservation?: Date,
               private _nombre?: number,
-              private _description?: string
+              private _description?: string,
+              private _emplacementImage?: any
   ) {
+  }
+
+
+  get nombre(): number {
+    return this._nombre;
+  }
+
+  set nombre(value: number) {
+    this._nombre = value;
+  }
+
+  get emplacementImage(): any {
+    return this._emplacementImage;
+  }
+
+  set emplacementImage(value: any) {
+    this._emplacementImage = value;
   }
 
   get animal(): Animal {

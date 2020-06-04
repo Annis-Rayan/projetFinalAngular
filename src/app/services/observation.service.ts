@@ -54,8 +54,12 @@ export class ObservationService {
       'description': observation.description,
       'localisation': l,
       'animal': observation.animal,
-      'utilisateur': observation.user
+      'utilisateur': observation.user,
+      'emplacementImage': {
+        'id': observation.emplacementImage
+      }
     };
+    console.log(o);
     return this.httpClient.put(this.URL + '/' + observation.id, o, this.options);
   }
 
@@ -75,7 +79,10 @@ export class ObservationService {
       'description': observation.description,
       'localisation': l,
       'animal': observation.animal,
-      'utilisateur': observation.user
+      'utilisateur': observation.user,
+      'emplacementImage': {
+        'id': observation.emplacementImage
+      }
     };
     console.log(o);
     return this.httpClient.post(this.URL, o, this.options);

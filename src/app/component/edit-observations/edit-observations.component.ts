@@ -9,6 +9,7 @@ import {User} from '../model/user';
 import {AnimalService} from '../../services/animal.service';
 
 import {UserService} from '../../services/user.service';
+import {HttpClient} from '@angular/common/http';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class EditObservationsComponent implements OnInit {
 
   private _animaux: Animal[];
 
-   private _animaux2: Animal[];
+  private _animaux2: Animal[];
   private _animal: Animal;
   private _nouvelAnimal: Animal;
 
@@ -44,7 +45,7 @@ export class EditObservationsComponent implements OnInit {
   private _user: User = new User;
 
 
-  constructor(private animalService: AnimalService,
+  constructor(private httpClient: HttpClient, private animalService: AnimalService,
               private userService: UserService,
               private fb: FormBuilder,
               private observationService: ObservationService,
@@ -76,6 +77,52 @@ export class EditObservationsComponent implements OnInit {
     });
   }
 
+  // Partie implémentation image
+
+  private _selectedFile;
+  private _event1;
+  private _imgURL: any;
+  private _receivedImageData: any = {};
+  private _base64Data: any;
+  private _convertedImage: any;
+
+  public onFileChanged(event) {
+    console.log(event);
+    this._selectedFile = event.target.files[0];
+
+    // Below part is used to display the selected image
+    let reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event2) => {
+      this._imgURL = reader.result;
+    };
+
+  }
+
+
+  onUpload() {
+
+    const uploadData = new FormData();
+    uploadData.append('myFile', this._selectedFile, this._selectedFile.name);
+    console.log(uploadData);
+    console.log(this.observation.id);
+
+    this.httpClient.post('http://localhost:8080/web/rest/observation/edit/upload/' + this.observation.id, uploadData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this._receivedImageData = res;
+          this._base64Data = this._receivedImageData.pic;
+          this._convertedImage = 'data:image/jpeg;base64,' + this._base64Data;
+          this.observation.emplacementImage = this.receivedImageData.id;
+        },
+        err => console.log('Error Occured during saving: ' + err)
+      );
+
+
+  }
+
+
   static checkDate(control: FormControl) {
     if (new Date(control.value) < new Date()) {
       return null;
@@ -103,7 +150,7 @@ export class EditObservationsComponent implements OnInit {
 
   }
 
-  private initUser(){
+  private initUser() {
     console.log(this.login.valueOf());
     this.userService.findByPseudo(this.login.valueOf()).subscribe(resultUser => {
       this._user = resultUser;
@@ -140,7 +187,6 @@ export class EditObservationsComponent implements OnInit {
       }, err => {
         this._erreur = true;
       });
-
 
 
     } else {
@@ -184,6 +230,71 @@ export class EditObservationsComponent implements OnInit {
       return this._observationForm.dirty && this._observationForm.invalid;
     }
     return this._observationForm.dirty && this._observationForm.invalid;
+  }
+
+
+  get animaux2(): Animal[] {
+    return this._animaux2;
+  }
+
+  set animaux2(value: Animal[]) {
+    this._animaux2 = value;
+  }
+
+  get nouvelAnimal(): Animal {
+    return this._nouvelAnimal;
+  }
+
+  set nouvelAnimal(value: Animal) {
+    this._nouvelAnimal = value;
+  }
+
+  get selectedFile() {
+    return this._selectedFile;
+  }
+
+  set selectedFile(value) {
+    this._selectedFile = value;
+  }
+
+  get event1() {
+    return this._event1;
+  }
+
+  set event1(value) {
+    this._event1 = value;
+  }
+
+  get imgURL(): any {
+    return this._imgURL;
+  }
+
+  set imgURL(value: any) {
+    this._imgURL = value;
+  }
+
+  get receivedImageData(): any {
+    return this._receivedImageData;
+  }
+
+  set receivedImageData(value: any) {
+    this._receivedImageData = value;
+  }
+
+  get base64Data(): any {
+    return this._base64Data;
+  }
+
+  set base64Data(value: any) {
+    this._base64Data = value;
+  }
+
+  get convertedImage(): any {
+    return this._convertedImage;
+  }
+
+  set convertedImage(value: any) {
+    this._convertedImage = value;
   }
 
   get observation(): Observation {
@@ -302,7 +413,8 @@ export class EditObservationsComponent implements OnInit {
   set descriptionCtrl(value: FormControl) {
     this._descriptionCtrl = value;
   }
-  public get login(){
+
+  public get login() {
     return sessionStorage.getItem('login');
   }
 }

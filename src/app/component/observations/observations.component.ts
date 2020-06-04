@@ -24,11 +24,11 @@ export class ObservationsComponent implements OnInit {
     this.observationService.findAll().subscribe(result => {
       this.observations = result;
 
-      console.log(this.login);
+    /*  console.log(this.login);
       this.userService.findByPseudo(this.login).subscribe(result2 => {
         console.log(result2);
         // console.log(this.userService.findByPseudo(this.login));
-      });
+      });*/
 
     });
   }

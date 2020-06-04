@@ -1,17 +1,68 @@
-<div class="container">
-
-  <ol class="breadcrumb">
-    <a [routerLink]="['/home']" routerLinkActive="active">Home</a> &nbsp;-&nbsp;
-    <a [routerLink]="['/observation']" routerLinkActive="active"> Liste des observations  </a> &nbsp;-&nbsp;
-
-    Observation choisie
-  </ol>
-  <br>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <h3><strong>Observation de AANIMAAL DANS SSS PAR USEEERRRRR</strong></h3>
+<div class="container" id="bodywrapper">
 
 
-  </nav>
-  <p>single-obs works!</p>
 
+
+
+
+
+  <br><br>
+
+
+
+  <div id="wrapper" class="bootstrap">
+
+
+
+
+
+    <div class="container" style="background-color:white">
+
+
+      <div class="row">
+        <div class="col-sm-4">
+          <h1><img  [src]="getImage(observation) | async"></h1>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="list-group">
+                <a class="list-group-item" href="/observations/whimbrelbirder">
+
+                  <i class="fa fa-binoculars"></i>
+                  Observations... à venir
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-sm-8" style="background-color:white">
+          <h1>
+            {{observation.animal.nomCourant}} <br>
+            <small class="role">
+              ( {{observation.animal.nomScientifique}}, {{observation.animal.ordre}} )<br>
+              Observé à: {{observation.localisation.localite}}, {{observation.localisation.region}},
+              {{observation.localisation.pays}} <br>
+              Observé par : <a class="text-info" [routerLink]="['/users',observation.user.id]"
+                               routerLinkActive="active"></a>{{observation.user.pseudo}}
+              <a href="/help#curators"><span class="glyphicon glyphicon glyphicon-question-sign"></span>
+              </a></small>
+          </h1>
+
+          <div id="description">
+            <p class="lead">
+
+              <br>
+              {{observation.description}}
+            </p>
+
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </div>
+
